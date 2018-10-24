@@ -12,12 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testDemo()
+        C2P2Demo()
     }
 
-    func testDemo() {
+    func C2P1Demo() {
         C2P1().advacedArrayFunc()
         C2P1().slice()
+    }
+    
+    func C2P2Demo() {
+        C2P2().advanceDictFunc()
     }
     
     override func didReceiveMemoryWarning() {

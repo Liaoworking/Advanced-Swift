@@ -13,6 +13,7 @@
 		24A879D3217F72F60049E0E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A879D2217F72F60049E0E5 /* Assets.xcassets */; };
 		24A879D6217F72F60049E0E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A879D4217F72F60049E0E5 /* LaunchScreen.storyboard */; };
 		24A879DE217F731F0049E0E5 /* C2P1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A879DD217F731F0049E0E5 /* C2P1.swift */; };
+		24A879E02180C8310049E0E5 /* C2P2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A879DF2180C8310049E0E5 /* C2P2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		24A879D5217F72F60049E0E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24A879D7217F72F60049E0E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24A879DD217F731F0049E0E5 /* C2P1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C2P1.swift; sourceTree = "<group>"; };
+		24A879DF2180C8310049E0E5 /* C2P2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C2P2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				24A879CB217F72EB0049E0E5 /* AppDelegate.swift */,
 				24A879CD217F72EB0049E0E5 /* ViewController.swift */,
 				24A879DD217F731F0049E0E5 /* C2P1.swift */,
+				24A879DF2180C8310049E0E5 /* C2P2.swift */,
 				24A879CF217F72EB0049E0E5 /* Main.storyboard */,
 				24A879D2217F72F60049E0E5 /* Assets.xcassets */,
 				24A879D4217F72F60049E0E5 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A879E02180C8310049E0E5 /* C2P2.swift in Sources */,
 				24A879CE217F72EB0049E0E5 /* ViewController.swift in Sources */,
 				24A879DE217F731F0049E0E5 /* C2P1.swift in Sources */,
 				24A879CC217F72EB0049E0E5 /* AppDelegate.swift in Sources */,
