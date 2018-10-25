@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        C2P2Demo()
+        C2P3_C2P4Demo()
     }
 
     func C2P1Demo() {
@@ -22,6 +22,11 @@ class ViewController: UIViewController {
     
     func C2P2Demo() {
         C2P2().advanceDictFunc()
+    }
+    
+    func C2P3_C2P4Demo() {
+        C2P3_C2P4().baseSetFunc()
+        C2P3_C2P4().creatRange()
     }
     
     override func didReceiveMemoryWarning() {
