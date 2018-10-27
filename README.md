@@ -1,5 +1,5 @@
 # Advanced-Swift
-Notes of Advanced Swift. 《swift进阶》学习笔记，持续更新中。。。 
+Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。  swift 4.2
 
 
 ### 第一章 介绍
