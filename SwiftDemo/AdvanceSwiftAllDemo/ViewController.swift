@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        C3P1Demo()
+        C3P4Demo()
     }
 
     func C2P1Demo() {
@@ -31,6 +31,10 @@ class ViewController: UIViewController {
     
     func C3P1Demo() {
         C3P1().aboutSequence()
+    }
+    
+    func C3P4Demo() {
+        C3P4().sliceFunc()
     }
     
     override func didReceiveMemoryWarning() {

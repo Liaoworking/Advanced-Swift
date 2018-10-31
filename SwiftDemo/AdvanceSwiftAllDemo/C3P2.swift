@@ -76,8 +76,8 @@ extension FIFOQueue:Collection {
     }
 }
 
-extension FIFOQueue:ExpressibleByArrayLiteral{
-    init(arrayLiteral elements: Int...) {
-        self.init(left: elements.reversed(), right: [])
-    }
-}
+//extension FIFOQueue:ExpressibleByArrayLiteral{
+//    init(arrayLiteral elements: Int...) {
+//        self.init(left: elements.reversed(), right: [])
+//    }
+//}
