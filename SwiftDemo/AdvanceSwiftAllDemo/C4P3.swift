@@ -27,8 +27,46 @@ class C4P3: NSObject {
 //        }
         
         
+        let testOptionalChainingObj = testOptionalChaining()
+        testOptionalChainingObj.voidCallback = {
+            print("Hi~ I am callback~")
+        }
+        testOptionalChainingObj.testCall()
+
+        20.half?.half?.half?.half
         
         
+        var number: Int?
+        number = nil
+        String(number ?? 5)
+    }
+    
+}
+
+
+/// 测试可选链
+class testOptionalChaining: NSObject {
+    
+    var voidCallback:(()-> Void)?
+    
+    func testCall() {
+        voidCallback?()
+        //不推荐的写法(直到写笔记的时候才发现自己之前这样写都写复杂了，一点swift的优点都没体现出来😂)
+        if voidCallback != nil {
+            voidCallback!()
+        }
+        
+    }
+    
+    
+}
+
+
+extension Int {
+    
+    var half: Int? {
+        guard self > 1 else {return nil}
+        return self/2
     }
     
 }
