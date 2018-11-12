@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        C4P3Demo()
+        C4P4Demo()
     }
     
     /// Array
@@ -51,6 +51,10 @@ class ViewController: UIViewController {
     /// 可选值的一些用法
     func C4P3Demo() {
         C4P3().somethingAboutOptional()
+    }
+    
+    func C4P4Demo() {
+        C4P4().useOperators()
     }
     
     override func didReceiveMemoryWarning() {
