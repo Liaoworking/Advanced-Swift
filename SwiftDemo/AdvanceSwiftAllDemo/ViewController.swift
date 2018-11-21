@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        C5P1Demo()
+        C5P3StructDemo()
     }
     
     /// Array
@@ -59,6 +59,10 @@ class ViewController: UIViewController {
     
     func C5P1Demo() {
         C5P1().valueType()
+    }
+    
+    func C5P3StructDemo() {
+        C5P3Struct().structIntroduction()
     }
     
     override func didReceiveMemoryWarning() {
