@@ -33,3 +33,10 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 #### [4.5 多灾多难的隐式可选值](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E5%8F%AF%E9%80%89%E5%80%BC/4.5%20%E5%A4%9A%E7%81%BE%E5%A4%9A%E9%9A%BE%E7%9A%84%E9%9A%90%E5%BC%8F%E5%8F%AF%E9%80%89%E5%80%BC.md)
 
+### 第五章：结构体和类
+
+#### [5.1 值类型---5.2 可变性](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%B1%BB/5.1_2%E5%80%BC%E7%B1%BB%E5%9E%8B_%E5%8F%AF%E5%8F%98%E6%80%A7.md)
+
+#### [5.3 结构体](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%B1%BB/5.3%20%E7%BB%93%E6%9E%84%E4%BD%93.md)
+
+
