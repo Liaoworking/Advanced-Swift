@@ -62,7 +62,8 @@ class ViewController: UIViewController {
     }
     
     func C5P3StructDemo() {
-        C5P3Struct().structIntroduction()
+//        C5P3Struct().structIntroduction()
+        C5P4Copy_on_write().CopyOnWriteDemo()
     }
     
     override func didReceiveMemoryWarning() {
