@@ -22,6 +22,7 @@
 		24CBDA962199C34F0007A4C2 /* C4P4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBDA952199C34F0007A4C2 /* C4P4.swift */; };
 		24CBDA9821A5A3730007A4C2 /* C5P3Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBDA9721A5A3730007A4C2 /* C5P3Struct.swift */; };
 		24CBDA9A21AEE3D60007A4C2 /* C5P4Copy_on_write.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBDA9921AEE3D60007A4C2 /* C5P4Copy_on_write.swift */; };
+		24CBDA9C21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CBDA9B21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift */; };
 		D5420678219FEBF0003BF5F7 /* C5P1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5420677219FEBF0003BF5F7 /* C5P1.swift */; };
 		D547A493218467A70050CC87 /* C3P1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D547A492218467A70050CC87 /* C3P1.swift */; };
 		D5BBB3CC218D988F008ED334 /* C3P5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BBB3CB218D988F008ED334 /* C3P5.swift */; };
@@ -45,6 +46,7 @@
 		24CBDA952199C34F0007A4C2 /* C4P4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C4P4.swift; sourceTree = "<group>"; };
 		24CBDA9721A5A3730007A4C2 /* C5P3Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C5P3Struct.swift; sourceTree = "<group>"; };
 		24CBDA9921AEE3D60007A4C2 /* C5P4Copy_on_write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C5P4Copy_on_write.swift; sourceTree = "<group>"; };
+		24CBDA9B21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C5P5_P6ClosureAndMemory.swift; sourceTree = "<group>"; };
 		D5420677219FEBF0003BF5F7 /* C5P1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C5P1.swift; sourceTree = "<group>"; };
 		D547A492218467A70050CC87 /* C3P1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C3P1.swift; sourceTree = "<group>"; };
 		D5BBB3CB218D988F008ED334 /* C3P5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C3P5.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				D5420677219FEBF0003BF5F7 /* C5P1.swift */,
 				24CBDA9721A5A3730007A4C2 /* C5P3Struct.swift */,
 				24CBDA9921AEE3D60007A4C2 /* C5P4Copy_on_write.swift */,
+				24CBDA9B21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift */,
 				24A879CF217F72EB0049E0E5 /* Main.storyboard */,
 				24A879D2217F72F60049E0E5 /* Assets.xcassets */,
 				24A879D4217F72F60049E0E5 /* LaunchScreen.storyboard */,
@@ -177,6 +180,7 @@
 				243D17032193407B00F4AC92 /* C4P2.swift in Sources */,
 				243D17052193408400F4AC92 /* C4P3.swift in Sources */,
 				D547A493218467A70050CC87 /* C3P1.swift in Sources */,
+				24CBDA9C21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift in Sources */,
 				24A879E4218752990049E0E5 /* C3P2.swift in Sources */,
 				24CBDA962199C34F0007A4C2 /* C4P4.swift in Sources */,
 				24A879E02180C8310049E0E5 /* C2P2.swift in Sources */,
