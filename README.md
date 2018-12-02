@@ -39,4 +39,11 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 #### [5.3 结构体](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%B1%BB/5.3%20%E7%BB%93%E6%9E%84%E4%BD%93.md)
 
+#### [5.4 写时复制](https://github.com/Liaoworking/Advanced-Swift/blob/master/第五章：结构体和类/5.4%20写时复制.md)
+
+#### [5.5_6 闭包和可变性_内存](https://github.com/Liaoworking/Advanced-Swift/blob/master/第五章：结构体和类/5.5_6%20闭包和可变性_内存.md)
+
+#### [5.7_8 闭包和内存](https://github.com/Liaoworking/Advanced-Swift/blob/master/第五章：结构体和类/5.7_8%20闭包和内存.md)
+
+
 
