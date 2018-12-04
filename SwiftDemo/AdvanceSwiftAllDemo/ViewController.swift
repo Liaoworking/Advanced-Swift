@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        C5P3StructDemo()
+        C6Function()
     }
     
     /// Array
@@ -66,6 +66,9 @@ class ViewController: UIViewController {
         C5P4Copy_on_write().CopyOnWriteDemo()
     }
     
+    func C6Function() {
+        C6().function()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

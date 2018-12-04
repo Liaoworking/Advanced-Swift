@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242E20D721B6D125003216FC /* C6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E20D621B6D125003216FC /* C6.swift */; };
 		243D16FD2189FC0800F4AC92 /* C3P4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243D16FC2189FC0800F4AC92 /* C3P4.swift */; };
 		243D17032193407B00F4AC92 /* C4P2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243D17022193407B00F4AC92 /* C4P2.swift */; };
 		243D17052193408400F4AC92 /* C4P3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243D17042193408400F4AC92 /* C4P3.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		242E20D621B6D125003216FC /* C6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C6.swift; sourceTree = "<group>"; };
 		243D16FC2189FC0800F4AC92 /* C3P4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C3P4.swift; sourceTree = "<group>"; };
 		243D17022193407B00F4AC92 /* C4P2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C4P2.swift; sourceTree = "<group>"; };
 		243D17042193408400F4AC92 /* C4P3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C4P3.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				24CBDA9721A5A3730007A4C2 /* C5P3Struct.swift */,
 				24CBDA9921AEE3D60007A4C2 /* C5P4Copy_on_write.swift */,
 				24CBDA9B21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift */,
+				242E20D621B6D125003216FC /* C6.swift */,
 				24A879CF217F72EB0049E0E5 /* Main.storyboard */,
 				24A879D2217F72F60049E0E5 /* Assets.xcassets */,
 				24A879D4217F72F60049E0E5 /* LaunchScreen.storyboard */,
@@ -179,6 +182,7 @@
 			files = (
 				243D17032193407B00F4AC92 /* C4P2.swift in Sources */,
 				243D17052193408400F4AC92 /* C4P3.swift in Sources */,
+				242E20D721B6D125003216FC /* C6.swift in Sources */,
 				D547A493218467A70050CC87 /* C3P1.swift in Sources */,
 				24CBDA9C21B3B1270007A4C2 /* C5P5_P6ClosureAndMemory.swift in Sources */,
 				24A879E4218752990049E0E5 /* C3P2.swift in Sources */,
