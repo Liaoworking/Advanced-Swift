@@ -67,7 +67,8 @@ class ViewController: UIViewController {
     }
     
     func C6Function() {
-        C6().function()
+//        C6().function()
+        C6P1Flexibility().flexibilityDemo()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
