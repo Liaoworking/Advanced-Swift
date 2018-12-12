@@ -1,0 +1,21 @@
+# 第六章：函数(function)
+## 6.4 inout参数和可变方法（inout parameter and mutating function）
+##### 知识点： inout 关键字：就是改变传递给函数的参数，让参数变得可变（swift 中方法的参数默认都是 let 不可变的）
+inout做的事情就是把一个值传递给函数，函数可以改变这个值，然后将原来的值替换，并传递出来。
+```并不是传递引用```
+
+#### 什么样的表达式可以当作inout参数去传递？
+ 先来弄懂两个c++中的概率。  ```lvalve``` （变量）和 ```rvalve```  （不是变量）
+ 如array[2] = 4         ```lvalue``` = ```rvalue```
+ * lvalue估计来源于left value。 位置处于左边。就是```可以修改```的值。 
+ * rvalue估计来源于right value。处于赋值语句右边，是只读的```不可修改```的值。
+资料来源：[关于lvalve 和 rvalve](https://blog.csdn.net/rogerhe/article/details/6410993) 感兴趣的同学可以看看。
+inout参数，只能传递lvalve给它。因为不可能对一个rvalve进行改变。
+
+##### 注： 每个lvalve前面需要加上&符号将它传入
+![Alert text](http://pjmrfxc1n.bkt.clouddn.com/2FC22C09-9CBD-4125-B388-64A726A752B3.jpeg)
+inout的基本使用
+
+##### 知识点：只读属性（只有get方法）无法作用于inout参数
+
+tips：swift文档指出 我们```不应该依赖inout```这个行为
