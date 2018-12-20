@@ -1,0 +1,29 @@
+# 字符串
+
+## 7.1 不再固定宽度
+这一节主要是讲字符串```String底层的东西```
+我们先明白几个知识点：
+
+####知识点1：swift中String 是```Character```的集合，有着类似Array的特性。
+####知识点2：Unicode拥有```可变长度```的特性 ：原因是不同语言的字符存放字节数不同，若都统一长度，```效率太低```
+
+字符串的展示Demo
+关于```é```
+我们可以用两种Unicode的方式表示字符é
+![Alert text](http://pjmrfxc1n.bkt.clouddn.com/F16BC5CF-4C45-4F18-A8D2-E61772DFF779.jpeg)
+
+	strA.utf8.elementsEqual(strB.utf8)//false
+
+##### 注： 只比较编码单元的最大好处是：```快很多```。 
+具体的数据比较这里没有做。 不过书上在快很多后面打了个感叹号。那应该的确是快很多。😄
+
+## 字符蔟（cu四声。。）和标准等价    grapheme cluster and canonically equivalent 
+
+#### 知识点3： 字符蔟： Character 中的```编码点```组合在一起可以组成单个字符蔟（这个就比较偏字符生成的底层了 大概有个印象就行， 以后有需要了可以看看相关文章）
+ [苹果官方Characters and Grapheme Clusters 文档](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/stringsClusters.html)
+
+#### 知识点4：标准等价： 在上面的Demo中。不管是何种方式生成的é，只看两个都是显示为é，  在 Unicode的规范中把这个就叫做“```标准等价```”
+
+#### 知识点5： 做```国际化```的同学们。OC字符串的比较更推荐用compare方法， isEqual方法用上面的不同生成方法比较就会得到false的结果，demo如下。
+![Alert text](http://pjmrfxc1n.bkt.clouddn.com/EA7421B8-2DA1-496C-9A04-801306EFCFC8.jpeg)
+
