@@ -1,0 +1,46 @@
+# 字符串
+
+## 7.3 简单的正则表达式匹配器。  7.4 ExpressibleByStringLiteral
+这一节主要是用一个Demo来证明```字符串的切片也是字符串```这一点是多么的有用！
+### 然鹅。。。swift 3.2后```废弃了Characters```，我还能怎么样。。 我写半天没啥用。。
+我找两个有用的知识点写写啊。   
+刚刚仔细研读了半天，发现也没啥知识点。。 溜了溜了。。
+
+下面是的是7.4中的一些知识点：
+#### 知识点1：String(“abc”) 和 “abc”是不同的。“abc”是字符串```字面量```
+什么叫字面量？
+let aBool = true
+let aString = “abc”
+let aNumber = 3
+
+这种```不用定义类型 而直接知道类型```的就是字面量。
+我们可以通过```BooleanLiteralConvertible```协议来写自己的Bool类型。类似的```String``` ```Array``` 都有对应的方法。具体实现很简单。不赘述。大概知道有这个用法。需要的时候查资料就行。
+
+#### 知识点2： 关于ExpressibleByStringLiteral的```骚操作```
+ExpressibleByStringLiteral有什么用？
+通过字面意思（字符串）```实例化指定类```。
+在实际开发中，我们需要创建一个URL应该如下
+	let urls = URL(string: "https://www.liaoworking.com")
+现在我们可以通过ExpressibleByStringLiteral 来用一种意想不到的方式去创建一个URL
+
+	extension URL: ExpressibleByStringLiteral {
+    
+	public init(stringLiteral value: String) {
+    		guard let url = URL(string: "\(value)") else {
+        	preconditionFailure("This url: \(value) is not invalid")
+    	}
+    	self = url
+	}
+
+ 下一次当你创建URL的时候可以这样 ，有没有```狂拽炫酷吊炸天😄```
+	let url: URL = "https://www.liaoworking.com"
+
+不过在实际开发中当然```不建议这样去用```啦～ 阅读成本太高。
+```你信不信你的工友拿手机抡你哈哈。```
+
+今天是圣诞夜🎄，各位swift路上的工友，圣诞快乐。
+
+
+
+
+
