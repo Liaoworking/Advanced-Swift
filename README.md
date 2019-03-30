@@ -87,6 +87,39 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 #### [8.1 result类型](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.1%20result%E7%B1%BB%E5%9E%8B.md)
 
-#### [8.2 错误和函数参数](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.2%20%E9%94%99%E8%AF%AF%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.md)
+#### [8.2 错误和函数参数](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.2%20%E6%8A%9B%E5%87%BA%E5%92%8C%E6%8D%95%E8%8E%B7.md)
 
+#### [8.3 带有类型的错误](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.3%E5%B8%A6%E6%9C%89%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%94%99%E8%AF%AF.md)
+
+#### [8.4 将错误桥接到Objective-C](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.4%20%E5%B0%86%E9%94%99%E8%AF%AF%E6%A1%A5%E6%8E%A5%E5%88%B0Objective-C.md)
+
+#### [8.5 错误和函数参数](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.5%20%E9%94%99%E8%AF%AF%E5%92%8C%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.md)
+#### [8.6 defer语法可以让代码更简洁](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.6%20defer%E8%AF%AD%E6%B3%95%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BB%A3%E7%A0%81%E6%9B%B4%E7%AE%80%E6%B4%81%20Clearing%20Up%20Using%20defer.md)
+#### [8.7 错误和可选值](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.7%20%E9%94%99%E8%AF%AF%E5%92%8C%E5%8F%AF%E9%80%89%E5%80%BC%20Error%20and%20Optionals.md)
+
+#### [8.8 错误链](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.8%20%E9%94%99%E8%AF%AF%E9%93%BE.md)
+#### [8.9 高阶函数和错误](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.9%20%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E9%94%99%E8%AF%AF.md)
+
+### 第九章：泛型
+
+
+#### [9.1 重载](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B/9.1%20%E9%87%8D%E8%BD%BD%20Overloading.md)
+#### [9.2 对集合采用泛型操作](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B/9.2%20%E5%AF%B9%E9%9B%86%E5%90%88%E9%87%87%E7%94%A8%E6%B3%9B%E5%9E%8B%E6%93%8D%E4%BD%9C%20Operating%20Generically%20on%20Collections.md)
+#### [9.3 使用泛型进行代码设计](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B/9.3%20%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1Designing%20with%20Generics.md)
+#### [9.4 泛型的工作方式](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B/9.4%20%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F(How%20Generics%20Work)%20.md)
+
+### 第十章：协议
+
+#### [10.1 面向协议编程](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E5%8D%8F%E8%AE%AE/10.1%20%E9%9D%A2%E5%90%91%E5%8D%8F%E8%AE%AE%E7%BC%96%E7%A8%8B%20Overload%20Resolution%20for%20Free%20Functions%20.md)
+#### [10.2 协议的两种类型](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E5%8D%8F%E8%AE%AE/10.2%20%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B%20TwoTypesofProtocols.md)
+#### [10.3 带有 Self 的协议](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E5%8D%8F%E8%AE%AE/10.3%20%E5%B8%A6%E6%9C%89%20Self%20%E7%9A%84%E5%8D%8F%E8%AE%AE%20Protocols%20with%20Self%20Requirements.md)
+#### [10.4 协议内幕](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E5%8D%8F%E8%AE%AE/10.4%20%E5%8D%8F%E8%AE%AE%E5%86%85%E5%B9%95%20Protocol%20Internals.md)
+
+### 第十一章：互用性
+
+#### [11.1 实践:封装 CommonMark](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%EF%BC%9A%E4%BA%92%E7%94%A8%E6%80%A7/11.1%20%E5%AE%9E%E8%B7%B5%E5%B0%81%E8%A3%85%20CommonMark.md)
+#### [11.2 低层级类型概览](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%EF%BC%9A%E4%BA%92%E7%94%A8%E6%80%A7/11.2%20%E4%BD%8E%E5%B1%82%E7%BA%A7%E7%B1%BB%E5%9E%8B%E6%A6%82%E8%A7%88%20%20AnOverviewofLow-LevelTypes.md)
+#### [11.3 函数指针](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%EF%BC%9A%E4%BA%92%E7%94%A8%E6%80%A7/11.3%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%20%20FunctionPointers%20.md)
+
+#### 全书终🌛🌛
 
