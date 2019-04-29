@@ -9,4 +9,16 @@
 
 #### [github/swift-style-guide  ⭐️4.5k](https://github.com/github/swift-style-guide)(有中文翻译)
 
-未完待续ing.
+
+
+## All Tips
+#### tip1: swift项目```引用OC对象```的坑
+#####时必须要考虑该OC象是否可能为nil， ```swift默认引用的OC对象为必选``` 当oc对象为nil就会引起崩溃。
+##### 最好在引用OC对象时手动添加一个```?```,将OC对象标记为可选。
+在开发过程中有遇到几次崩溃都是没有考虑到这种情况。😿
+
+
+
+to be continued⏱.
+
+
