@@ -10,6 +10,16 @@
 #### [github/swift-style-guide  ⭐️4.5k](https://github.com/github/swift-style-guide)(有中文翻译)
 
 
+### 代码格式检查工具
+我们项目中用的是Realm 团队的[swiftLint](https://github.com/realm/SwiftLint) 
+安装比较简单 大部分的```警告```和```Error（不影响运行）```可以给你一些```代码规范的指导```
+
+#####· 唯一缺点：会```稍微增加一些编译时间```
+公司项目中不改动任何代码的二次编译时间需要```3.82s```
+
+添加swiftLint后时间为```4.279s```，有的时候会更长一些。
+
+
 
 ## All Tips
 #### tip1: swift项目```引用OC对象```的坑
