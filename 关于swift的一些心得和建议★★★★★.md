@@ -35,6 +35,20 @@
 ##### 当我们去判断一个```数组是否为空```的时候 大多都会写if array.count > 0 {} 
 ##### isEmpty 方法只有检查array```startIndex == endIndex``就可以。而count的底层是```遍历整个array```求集合长度。当数组长度过大时```性能低```一些。
 
+##### 不仅isEmpty效率高，而且会```更安全```
+有时候我们判断一个array? 是否为空会写出下面这样代码
+
+    var array:[String]?
+    /// 一番array 操作后
+    if array?.count != 0 {
+        ///当数组长度不为0时
+        doSomething()
+    } 
+    
+##### 其实当array为```nil```时 也会走doSomething() 的逻辑   这个时候可能就会出现逻辑上的bug.
+##### 用 isEmpty 就不会忽略这样的问题。
+
+
 
 to be continued⏱.
 
