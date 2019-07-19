@@ -56,32 +56,32 @@ propertyWrapper这个知识点不难,比较新而已。只要自己复制下面�
         self.key = key
         self.defaultValue = defaultValue
       }
-    ///  wrappedValue是@propertyWrapper必须要实现的属性
-    /// 当操作我们要包裹的属性时  其具体set get方法实际上走的都是wrappedValue 的set get 方法。 
-    var wrappedValue: T {
-      get {
-        return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
-      }
-      set {
-        UserDefaults.standard.set(newValue, forKey: key)
-      }
-    }
+       ///  wrappedValue是@propertyWrapper必须要实现的属性
+       /// 当操作我们要包裹的属性时  其具体set get方法实际上走的都是wrappedValue 的set get 方法。 
+       var wrappedValue: T {
+         get {
+           return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+         }
+         set {
+           UserDefaults.standard.set(newValue, forKey: key)
+         }
+       }
     }
 
     ///封装一个UserDefault配置文件
     struct UserDefaultsConfig {
-    ///告诉编译器 我要包裹的是hadShownGuideView这个值。
-    ///实际写法就是在UserDefault包裹器的初始化方法前加了个@
-    /// hadShownGuideView 属性的一些key和默认值已经在 UserDefault包裹器的构造方法中实现
-      @UserDefault("had_shown_guide_view", defaultValue: false)
-        static var hadShownGuideView: Bool
-      }
+       ///告诉编译器 我要包裹的是hadShownGuideView这个值。
+       ///实际写法就是在UserDefault包裹器的初始化方法前加了个@
+       /// hadShownGuideView 属性的一些key和默认值已经在 UserDefault包裹器的构造方法中实现
+       @UserDefault("had_shown_guide_view", defaultValue: false)
+           static var hadShownGuideView: Bool
+        }
 
-    ///具体的业务代码。
-    UserDefaultsConfig.hadShownGuideView = false
-    print(UserDefaultsConfig.hadShownGuideView) // false
-    UserDefaultsConfig.hadShownGuideView = true
-    print(UserDefaultsConfig.hadShownGuideView) // true
+       ///具体的业务代码。
+       UserDefaultsConfig.hadShownGuideView = false
+       print(UserDefaultsConfig.hadShownGuideView) // false
+       UserDefaultsConfig.hadShownGuideView = true
+       print(UserDefaultsConfig.hadShownGuideView) // true
 
 我把@propertyWrapper 的具体用法和知识点已经写到了demo中。    ```PlayGround```中跑一跑就很稳了。
 
