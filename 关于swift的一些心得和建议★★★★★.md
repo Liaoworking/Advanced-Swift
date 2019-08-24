@@ -74,7 +74,7 @@
 #### ⭐️tip6: 同样在Swift5.0中添加了bool值的新方法```toggle()```， 它的主要作用是让Bool值取反。 
 ##### 像我们在btn的按钮的状态改变的时候之前一般都会用 ```btn.isSelected = !btn.isSelected``` 有了toggle方法后 直接可以 ```btn.toggle()``` 达到同样的效果。 
 
-
+#### ⭐️tip7: TODO-用通俗的语言和使用场景向大家介绍@autoclosure 注解的使用
 
 to be continued⏱.
 
