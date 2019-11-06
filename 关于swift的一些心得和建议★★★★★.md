@@ -79,6 +79,28 @@
 #### ⭐️tip8: switch 语句中尽量少的使用```default``` 分支
 ##### 当我们添加新的case时候 有些没有cover到的地方没有编译报错就会产生一些逻辑错误。
 ##### 如果觉得编译报错太烦可以使用swift 5 出来的[@unknown](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%99%95%E7%90%86%E6%9C%AA%E4%BE%86-case-%E7%9A%84-unknown-default-swift-5-c064365d6c3) 关键字修饰default 分支  让新添加的case以编译警告的形式出现。
+
+#### ⭐️tip9: 打印 枚举的case名，输出并不是枚举的value值而是case的字面名字。
+    
+    enum Animal: String {
+        case human = "H"
+        case dog = "D"
+        case cat = "C"
+    }
+    enum TimeUtile: Int {
+        case second = 1
+        case minute = 60
+        case hour = 3600
+    }
+    
+    var animal: Animal = .human
+    var time: TimeUtile = .second
+    print(animal) // human
+    print(animal.rawValue) // H
+    print(time) // second
+    print(time.rawValue) // 1
+
+
 to be continued⏱.
 
 
