@@ -1,5 +1,11 @@
 # 让GeometryReader来解决吧
 
+文章源地址:[https://swiftui-lab.com/geometryreader-to-the-rescue/](https://swiftui-lab.com/geometryreader-to-the-rescue/)
+
+作者: Javier
+
+翻译: Liaoworking
+
 ##### 大多数情况下，SwiftUI都会发挥其[神奇的布局](https://swiftui-lab.com/layout-magic/)的特性。但是有时候，我们需要对自定义视图的布局进行更多操作。目前我们有几种工具。第一个需要我们去探索的就是**GeometryReader**。
 
 #### 父级视图想要什么？
@@ -184,5 +190,3 @@ GeometryReader 功能已经相当强大，但它如果与 **.background()**或 *
 今天所学的GeometryReader让我们的自定义view知道了它们所需的大小和位置。 我们还学习了获取其他view的geometry。
 这只是很第一篇官方并没有提及的讲SwiftUI中的布局工具的文章，接下来我们将会深度研究view的数层次，和子级试图如何把数据向上传递。[点我查看](https://swiftui-lab.com/communicating-with-the-view-tree-part-1/)
 
-文章源地址:[https://swiftui-lab.com/geometryreader-to-the-rescue/](https://swiftui-lab.com/geometryreader-to-the-rescue/)
-作者: Javier
