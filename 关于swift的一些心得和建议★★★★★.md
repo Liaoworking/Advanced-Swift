@@ -100,6 +100,27 @@
     print(time) // second
     print(time.rawValue) // 1
 
+#### ⭐️tip10: 多用 ```guard let```   少用 ```if let``` 
+    
+    // 使用 if let 嵌套太多 不利于维护 ❌
+    if let realOptionalA = optionalA {
+        print("had A")
+        if let realOptionalB = optionalB {
+            print("had A and B")
+            if let realOptionalC = optionalC {
+                print("had A、B and C")
+            }
+        }
+    }
+    
+    // 使用 guard let 调理清楚 便于阅读 ✅
+    guard let realOptionalA = optionalA else { return }
+    print("had A")
+    guard let realOptionalB = optionalB else { return }
+    print("had A and B")
+    guard let realOptionalC = optionalC else { return }
+    print("had A、B and C")
+
 
 to be continued⏱.
 
