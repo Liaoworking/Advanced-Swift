@@ -51,6 +51,7 @@
 #### ⭐️tip4: 将你```时常需要的常量```封装成你需要的属性
 ##### OC中的宏是我们在之前开发中经常用到的一些常用属性的封装。
 ##### 在swift中我们可以通过在```extension```中创建一些类属性，让你的常量更优雅
+##### SwiftUI标准库中大部分常量都是以这种方式封装。
 
     extension UIFont {
         /// APP中大标题的字体
@@ -59,12 +60,12 @@
     
     extension UIColor {
         /// APP主题色
-        static let appMainColor = UIColor.yellow
+        static let appMain = UIColor.yellow
     }
     
     let titleLabel = UILabel()
     titleLabel.font = .appLargeTitle
-    titleLabel.backgroundColor = .appMainColor
+    titleLabel.backgroundColor = .appMain
 
 
 #### ⭐️tip5: 当你需要的返回值有```成功```或者```失败```两种情况，而且```成功或者失败的情况有很多种```的话。推荐你使用Swift5以后推出的```Result```类型。
