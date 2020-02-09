@@ -122,6 +122,38 @@
     guard let realOptionalC = optionalC else { return }
     print("had A、B and C")
 
+#### ⭐️tip10: 快速为Class生成带有属性的初始化方法
+
+在struct中， 编译器会自动生成带有属性的初始化方法。
+
+    struct User {
+        let name: String?
+        var age: Int?
+    }
+    // 可直接调用
+    User(name: String?, age: Int?)
+
+但对于class就没有对于的初始化方法。我们可以使用XCode提供的辅助功能来生成对应的初始化方法。
+
+    class Book {
+        let name: String?
+        let pageCount: Int?
+    }
+
+![image](https://github.com/Liaoworking/Advanced-Swift/raw/master/pic/tips_11.png)
+
+    //使用后：
+    class Book {
+        // 编译器自动补全的方法
+        internal init(name: String?, pageCount: Int?) {
+            self.name = name
+            self.pageCount = pageCount
+        }
+        
+        let name: String?
+        let pageCount: Int?
+    }
+
 
 to be continued⏱.
 
