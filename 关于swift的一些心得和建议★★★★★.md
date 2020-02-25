@@ -155,6 +155,25 @@
     }
 
 
+#### ⭐️tip11: 自定义enum中尽量不要使用 case none的枚举项。
+
+    enum MyEnum {
+        case ok
+        case error
+        case none   ❌
+    }
+    
+    // 这个时候myEnum实际上是一个Optional的枚举值 而Optional 也有一个 none的枚举选项。 
+    var myEnum : MyEnum? = .none
+
+    //可以通过指定类型解决 但不建议这样
+    var myEnum : MyEnum? = Optional.none
+    var myEnum : MyEnum? = MyEnum.none
+
+
+这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
+
+
 to be continued⏱.
 
 
