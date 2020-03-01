@@ -173,6 +173,50 @@
 
 这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
 
+#### ⭐️tip12: 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
+假设某电商app首页的tableView有4个section
+   
+    // 电商首页的tableView 分组
+    //CaseIterable 用来获取枚举项个数
+    enum HomeSectionType: Int, CaseIterable {
+        // banner位
+        case banner = 1
+        // 合辑
+        case menu = 2
+        // 推荐
+        case recommend = 3
+        // 商品
+        case goods = 4
+        
+        // 枚举内部封装组头高度的计算方法
+        var headerHeight: CGFloat {
+        switch self :
+        case banner:
+            return 88.88
+            .....
+        }
+        
+    }
+  
+    // tableView 代理
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return HomeSectionType.allCases.count
+     }
+    // 获取组头高度
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {  
+        guard let sectionType = HomeSectionType(rawValue: section) else { return 0.0 }
+        return sectionType.headerHeight
+    }
+    
+    
+
+这样就可以让tableView的代理看起来简洁明了。
+    
+```CaseIterable```协议可以让你的枚举具备Array相关的属性，如```count```
+还有一个好处就是当产品某个版本想要```调换section的顺序```的时候  可以直接 修改```枚举项的Int值```即可。
+
+Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过程中自己多尝试一下下~
+
 
 to be continued⏱.
 
