@@ -23,12 +23,14 @@
 
 
 ## All Tips
-#### ⭐️tip1: swift项目```引用OC对象```的坑
+### ⭐️tip1: 
+#### swift项目```引用OC对象```的坑
 ##### swift项目引用OC对象时```必须要考虑```该OC象是否可能为nil， ```swift默认引用的OC对象为必选``` 当oc对象为nil就会引起崩溃。
 ##### 最好在引用OC对象时手动添加一个```?```,将OC对象标记为可选。
 在开发过程中有遇到几次崩溃都是没有考虑到这种情况。😿
 
-#### ⭐️tip2: 多使用```let```
+### ⭐️tip2: 
+#### 多使用```let```
 ##### let会让我们在很多时候```放心大胆```的去使用定义好的值，而不用去考虑后面再哪里改变了这个值和安全性的问题。
 
 #### ⭐️tip3: array.isEmpty 效率比 arrya.count 更高
@@ -48,7 +50,8 @@
 ##### 其实当array为```nil```时 也会走doSomething() 的逻辑   这个时候可能就会出现逻辑上的bug.
 ##### 用 isEmpty 就不会忽略这样的问题。
 
-#### ⭐️tip4: 将你```时常需要的常量```封装成你需要的属性
+### ⭐️tip4: 
+#### 将你```时常需要的常量```封装成你需要的属性
 ##### OC中的宏是我们在之前开发中经常用到的一些常用属性的封装。
 ##### 在swift中我们可以通过在```extension```中创建一些类属性，让你的常量更优雅
 ##### SwiftUI标准库中大部分常量都是以这种方式封装。
@@ -68,20 +71,25 @@
     titleLabel.backgroundColor = .appMain
 
 
-#### ⭐️tip5: 当你需要的返回值有```成功```或者```失败```两种情况，而且```成功或者失败的情况有很多种```的话。推荐你使用Swift5以后推出的```Result```类型。
+### ⭐️tip5: 
+#### 当你需要的返回值有```成功```或者```失败```两种情况，而且```成功或者失败的情况有很多种```的话。推荐你使用Swift5以后推出的```Result```类型。
 ##### 具体用法可看[之前写过的一篇文章](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.1%20result%E7%B1%BB%E5%9E%8B.md)
 ##### 它会让你的代码变的更简洁清晰。
 
-#### ⭐️tip6: 同样在Swift5.0中添加了bool值的新方法```toggle()```， 它的主要作用是让Bool值取反。 
+### ⭐️tip6: 
+#### 同样在Swift5.0中添加了bool值的新方法```toggle()```， 它的主要作用是让Bool值取反。 
 ##### 像我们在btn的按钮的状态改变的时候之前一般都会用 ```btn.isSelected = !btn.isSelected``` 有了toggle方法后 直接可以 ```btn.toggle()``` 达到同样的效果。 
 
-#### ⭐️tip7: TODO-~~用通俗的语言和使用场景向大家介绍@autoclosure 注解的使用~~
+### ⭐️tip7: 
+#### TODO-~~用通俗的语言和使用场景向大家介绍@autoclosure 注解的使用~~  不了解的同学可以先google一下相关用法。
 
-#### ⭐️tip8: switch 语句中尽量少的使用```default``` 分支
+### ⭐️tip8: 
+#### switch 语句中尽量少的使用```default``` 分支
 ##### 当我们添加新的case时候 有些没有cover到的地方没有编译报错就会产生一些逻辑错误。
 ##### 如果觉得编译报错太烦可以使用swift 5 出来的[@unknown](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%99%95%E7%90%86%E6%9C%AA%E4%BE%86-case-%E7%9A%84-unknown-default-swift-5-c064365d6c3) 关键字修饰default 分支  让新添加的case以编译警告的形式出现。
 
-#### ⭐️tip9: 打印 枚举的case名，输出并不是枚举的value值而是case的字面名字。
+### ⭐️tip9: 
+#### 打印 枚举的case名，输出并不是枚举的value值而是case的字面名字。
     
     enum Animal: String {
         case human = "H"
@@ -101,7 +109,8 @@
     print(time) // second
     print(time.rawValue) // 1
 
-#### ⭐️tip10: 多用 ```guard let```   少用 ```if let``` 
+### ⭐️tip10: 
+#### 多用 ```guard let```   少用 ```if let``` 
     
     // 使用 if let 嵌套太多 不利于维护 ❌
     if let realOptionalA = optionalA {
@@ -122,7 +131,8 @@
     guard let realOptionalC = optionalC else { return }
     print("had A、B and C")
 
-#### ⭐️tip10: 快速为Class生成带有属性的初始化方法
+### ⭐️tip10: 
+#### 快速为Class生成带有属性的初始化方法
 
 在struct中， 编译器会自动生成带有属性的初始化方法。
 
@@ -155,7 +165,8 @@
     }
 
 
-#### ⭐️tip11: 自定义enum中尽量不要使用 case none的枚举项。
+### ⭐️tip11: 
+#### 自定义enum中尽量不要使用 case none的枚举项。
 
     enum MyEnum {
         case ok
@@ -173,7 +184,8 @@
 
 这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
 
-#### ⭐️tip12: 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
+### ⭐️tip12: 
+#### 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
 假设某电商app首页的tableView有4个section
    
     // 电商首页的tableView 分组
