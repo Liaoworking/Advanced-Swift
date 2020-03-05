@@ -33,7 +33,8 @@
 #### 多使用```let```
 ##### let会让我们在很多时候```放心大胆```的去使用定义好的值，而不用去考虑后面再哪里改变了这个值和安全性的问题。
 
-#### ⭐️tip3: array.isEmpty 效率比 arrya.count 更高
+### ⭐️tip3: 
+#### array.isEmpty 效率比 arrya.count 更高
 ##### 当我们去判断一个```数组是否为空```的时候 大多都会写if array.count > 0 {} 
 ##### isEmpty 方法只有检查array```startIndex == endIndex``就可以。而count的底层是```遍历整个array```求集合长度。当数组长度过大时```性能低```一些。
 
