@@ -262,7 +262,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     guard let realOptionalC = optionalC else { return }
     print("had A、B and C")
 ---
-### ⭐️tip10: 
+### ⭐️tip11: 
 #### 快速为Class生成带有属性的初始化方法
 
 在struct中， 编译器会自动生成带有属性的初始化方法。
@@ -296,7 +296,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     }
 
 ---
-### ⭐️tip11: 
+### ⭐️tip12: 
 #### 自定义enum中尽量不要使用 case none的枚举项。
 
     enum MyEnum {
@@ -315,7 +315,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
 
-### ⭐️tip12: 
+### ⭐️tip13: 
 #### 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
 假设某电商app首页的tableView有4个section
    
