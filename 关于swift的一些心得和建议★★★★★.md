@@ -236,6 +236,29 @@ Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过
 有时候为了图方便就会使用计算型属性，保证每次都会拿到最新的数据。但如果是一些```耗时操作```建议添加缓存，或者使用普通的存储型属性。 缓存存在就直接返回缓存值，不存在的时候再去调用计算方法。 
 我在SwiftUI中没有过多考虑性能问题，大部分使用的计算型属性，导致有些地方性能消耗过多。。。 分享出来以示警醒。。
 
+---
+### ⭐️tip15: 
+#### 方便的push或者present控制器(本来打算写优雅的push或者present，感觉优雅这个词已经被玩烂了，就换成了方便的。。🐶)。
+日常写法是let vc = UIViewController(),  navigationController?.pushViewController(vc)
+或者 present(vc, animated: true, completion: nil)
+
+可以给UIViewController添加extension方法， 对 push 和 present 的封装
+
+    extension UIViewController {
+      func bePushed(by currentVC: UIViewController?) {
+        currentVC?.navigationController?.pushViewController(self, animated: true)
+      }
+
+      func bePresented(by currentVC: UIViewController?) {
+        currentVC?.present(self, animated: true, completion: nil)
+      }
+    }
+
+    // 使用如下：  个人感觉这样去弹出一个控制器语义上会更连贯便捷。
+    UIViewController().bePushed(by: self)
+    UIViewController().bePresented(by: self)
+
+
 to be continued⏱.
 
 
