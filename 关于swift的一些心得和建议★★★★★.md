@@ -239,7 +239,10 @@ Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过
 ---
 ### ⭐️tip15: 
 #### 方便的push或者present控制器(本来打算写优雅的push或者present，感觉优雅这个词已经被玩烂了，就换成了方便的。。🐶)。
-日常写法是let vc = UIViewController(),  navigationController?.pushViewController(vc)
+日常写法是let vc = UIViewController()
+
+navigationController?.pushViewController(vc)
+
 或者 present(vc, animated: true, completion: nil)
 
 可以给UIViewController添加extension方法， 对 push 和 present 的封装
