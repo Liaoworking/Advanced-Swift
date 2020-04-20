@@ -257,9 +257,53 @@ navigationController?.pushViewController(vc)
       }
     }
 
-    // 使用如下：  个人感觉这样去弹出一个控制器语义上会更连贯便捷。
+    // 在ViewController中使用如下：  个人感觉这样去弹出一个控制器语义上会更连贯便捷。
     UIViewController().bePushed(by: self)
     UIViewController().bePresented(by: self)
+
+### ⭐️tip16: 
+#### 对通知名的封装。
+个人一开始在OC转Swift的时候会对如何更好的在Swift中写通知名感到有些疑惑。
+苹果在```Swift4.0```中```Swift官方库```对通知名的使用做过一次修改。 改成了类的静态属性的形式，如下：
+
+如监听UItextView的内容改变：
+
+        NotificationCenter.default.addObserver(self, selector: #selector(textViewNotifitionAction), name: UITextView.textDidChangeNotification, object: nil)
+
+我们再日常开发中就会在对于监听的类的extension中去定义通知名 
+
+    extension MyClass {
+        public class let MyNotification: NSNotification.Name = ....
+    }
+
+如果想```全局管理```你的通知，而且```更方便```的使用通知名可以使用下面这种方式：
+
+    /// 创建一个通知名协议
+    public protocol NotificationName {
+        var name: Notification.Name { get }
+    }
+    
+    extension RawRepresentable where RawValue == String, Self: NotificationName {
+        public var name: Notification.Name {
+            get {
+                return Notification.Name(self.rawValue)
+            }
+        }
+    }
+
+    //最后用一个枚举去管理你所有的通知名
+    /// 所有通知名
+    public enum Notifications: String, NotificationName {
+        /// 自定义某某通知
+        case myNotification
+    }
+    
+    // 使用
+    NotificationCenter.default.addObserver(self, selector: #selector(fromMyNotification(notification:)), name: Notifications.myNotification.name, object: nil)
+
+优点：1.规避了通知名同名的可能性。
+     2.书写起来更方便。
+     3.方便查找管理。
 
 
 to be continued⏱.
