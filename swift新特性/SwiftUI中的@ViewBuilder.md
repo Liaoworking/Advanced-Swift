@@ -11,7 +11,7 @@
     .background(Color.red)
     .cornerRadius(5)
 
-后台产品加需求了： 图片也是红色的背景，圆角为5：
+后来产品加需求了： 图片也是红色的背景，圆角为5：
 
     Image("Liaoworking")
     .background(Color.red)
@@ -94,13 +94,15 @@
             content
                 .background(Color.red)
                 .cornerRadius(5)
-                .opacity(needHideText ? 0.0 : 1.0)
+                .opacity(needHidden ? 0.0 : 1.0)
                 .onTapGesture {
                     self.needHidden = true
             }
         }
     }
+    
     // 所有被RedBackgroundAndCornerView包裹的View就都具有了点击后隐藏的功能了。
+
     RedBackgroundAndCornerView {
         Text("liaoworking")
     }
@@ -115,4 +117,4 @@
     
     
 ### 总结：
-@ViewBuilder是一个封装可复用view逻辑的利器。它最大的好处就是把你逻辑代码和你的视图剥离开。让代码的可维护行和易读性有很大提升。我在之前的项目里一开始写过很多垃圾代码，后来知道了@ViewBuilder，这的确在对相同逻辑View的封装和使用上有了很大的便捷。 
+@ViewBuilder是一个封装可复用view逻辑的利器。它最大的好处就是把你```逻辑代码和你的视图剥离开```。让代码的```可维护性和易读性有很大提升```。我在之前的项目里一开始写过很多垃圾代码，后来知道了@ViewBuilder，这的确在对相同逻辑View的封装和使用上有了很大的便捷。 
