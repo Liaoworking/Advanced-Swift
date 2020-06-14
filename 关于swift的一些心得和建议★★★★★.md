@@ -308,6 +308,27 @@ navigationController?.pushViewController(vc)
      2.书写起来更方便。
      3.方便查找管理。
 
+### ⭐️tip17: 
+#### 使用where关键字让你的for循环变的更简洁
+
+假设你需要对一个字符串数组strArray进行一些处理，但是当元素为a的时候直接忽略。
+你可能会写成：
+
+    let strArray = ["a","a","b","c","d"]
+    
+    for str in strArray {
+        if str == "a" { continue }
+        // do something here
+    }
+
+或者你也可以使用```where```关键字进行限定:
+
+    for str in strArray where str != "a" {
+     // do something here
+    }
+
+这样你的代码也会看起来更整洁一些，不过你如果用filter函数的话另讲。
+
 
 to be continued⏱.
 
