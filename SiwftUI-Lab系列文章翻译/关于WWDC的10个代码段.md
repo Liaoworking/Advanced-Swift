@@ -23,4 +23,27 @@
 
 ![image](https://upload-images.jianshu.io/upload_images/1724449-9e6d42fa6ea8eca7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+### 2.Configurations
+
+Configurations是一个用于设置视图和Cell样式的全新API。很灵活，因为它可以用在任何的UIView上，包括collectionView和tableView的cell，使用简单。
+下面就是一个```UIListContentConfiguration```的使用例子:
+
+    var config = UIListContentConfiguration.subtitleCell()
+    config.image = UIImage(systemName:"tortoise")
+    config.text = "Hello world!"
+    config.secondaryText = "WWDC20"
+    let list = UIListContentView(configuration: config)
+
+List content的设置有很多默认的设置，包括状态，内容和背景设置，此外，它替代了 UITableViewCell废弃的"textLabel","detailTextLabel","imageView"的属性，[具体文档](https://developer.apple.com/documentation/uikit/views_and_controls/configurations)
+
+3. CollectionView 新增的 Lists
+
+从iOS 14开始，collectionView就可以设置类似于tableView的列表样式(这意味着tableView的时代要到了尽头)，示例代码如下：
+
+    let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+    let layout = UICollectionViewCompositionalLayout.list(using: config)
+
+列表会有不同的样式，而且会有滑动手势，分割线，accessories，WWDC的[Lists in UICollectionView](https://developer.apple.com/videos/play/wwdc2020/10026/)会告诉你更多细节。
+
+4.定位精确度的改变。
 
