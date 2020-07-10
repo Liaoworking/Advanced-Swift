@@ -36,7 +36,7 @@ Configurations是一个用于设置视图和Cell样式的全新API。很灵活�
 
 List content的设置有很多默认的设置，包括状态，内容和背景设置，此外，它替代了 UITableViewCell废弃的"textLabel","detailTextLabel","imageView"的属性，[具体文档](https://developer.apple.com/documentation/uikit/views_and_controls/configurations)
 
-3. CollectionView 新增的 Lists
+### 3. CollectionView 新增的 Lists
 
 从iOS 14开始，collectionView就可以设置类似于tableView的列表样式(这意味着tableView的时代要到了尽头)，示例代码如下：
 
@@ -45,5 +45,26 @@ List content的设置有很多默认的设置，包括状态，内容和背景�
 
 列表会有不同的样式，而且会有滑动手势，分割线，accessories，WWDC的[Lists in UICollectionView](https://developer.apple.com/videos/play/wwdc2020/10026/)会告诉你更多细节。
 
-4.定位精确度的改变。
+### 4.定位精确度的改变。
+Core Location框架这次也迎来了一些改变。可以允许用户选择分享给app的位置精确度的高或者低。
+如果你需要高精读的定位，而用户分享给你的是低精度的怎么办？你可以用下面的代码来解决你的问题：
+
+    let manager = CLLocationManager()
+    manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "YOUR-PURPOSE-KEY") { (error) in
+        // Your code
+    }
+
+暂时性的高精度只对运行中的进程可以，你必须要通过在info.plist中添加```NSLocationTemporaryUsageDescriptionDictionary```key及对应的描述才可以。 如果有更多的需求，或者你感兴趣的话，可以通过WWDC中的[What’s new in location](https://developer.apple.com/wwdc20/10660)和[Design for location privacy](https://developer.apple.com/wwdc20/10162)两个session来了解。
+
+### 5.行为追踪的授权
+今年苹果对用户发隐私有很大的关注(其实最近几年年年都是。。。)，不仅是定位和浏览器，而且应用的数据也会有限制。如果你获取设备的IDFA或者其他的敏感信息来追踪用户行为。你现在需要使用新的```AppTrackingTrasparency```框架。
+
+    ATTrackingManager.requestTrackingAuthorization { (status) in
+        // your code
+    }
+    // To know current status
+    ATTrackingManager.trackingAuthorizationStatus
+
+需要你在info.plist中去添加```NSUserTrackingUsageDescription``` key和对应的授权描述。用户可以在对于设置授权弹框不弹出。这样手机中所有app的这个授权弹框都不会弹出。[Build trust through better privacy](https://developer.apple.com/videos/play/wwdc2020/10676/) 这个session讲了更多相关的细节。
+
 
