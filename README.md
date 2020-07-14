@@ -1,5 +1,14 @@
 # Advanced-Swift
-Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。  swift 5.0 to swift 5.1ing.
+
+> The only way to learn a new programming language is by writing programs in it.
+> 学习一种新的编程语言的唯一方法，就是用它编写程序。
+> <p align="right">--- Dennis Ritchie</p>
+
+
+
+Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。  swift 5.0 to swift 5.3ing.
+
+
 
 
 ### 第一章 介绍
@@ -368,3 +377,5 @@ Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过
 maxiaoqing - [https://github.com/maxiaoqing](https://github.com/maxiaoqing)
 
 gitKun - [https://github.com/gitKun](https://github.com/gitKun)
+
+
