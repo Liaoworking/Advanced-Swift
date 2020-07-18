@@ -57,7 +57,7 @@ Core Location框架这次也迎来了一些改变。可以允许用户选择分�
 暂时性的高精度只对运行中的进程可以，你必须要通过在info.plist中添加```NSLocationTemporaryUsageDescriptionDictionary```key及对应的描述才可以。 如果有更多的需求，或者你感兴趣的话，可以通过WWDC中的[What’s new in location](https://developer.apple.com/wwdc20/10660)和[Design for location privacy](https://developer.apple.com/wwdc20/10162)两个session来了解。
 
 ### 5.行为追踪的授权
-今年苹果对用户发隐私有很大的关注(其实最近几年年年都是。。。)，不仅是定位和浏览器，而且应用的数据也会有限制。如果你获取设备的IDFA或者其他的敏感信息来追踪用户行为。你现在需要使用新的```AppTrackingTrasparency```框架。
+今年苹果对用户发隐私有很大的关注(其实最近几年年年都是...)，不仅是定位和浏览器，而且应用的数据也会有限制。如果你获取设备的IDFA或者其他的敏感信息来追踪用户行为。你现在需要使用新的```AppTrackingTrasparency```框架。
 
     ATTrackingManager.requestTrackingAuthorization { (status) in
         // your code
@@ -66,5 +66,59 @@ Core Location框架这次也迎来了一些改变。可以允许用户选择分�
     ATTrackingManager.trackingAuthorizationStatus
 
 需要你在info.plist中去添加```NSUserTrackingUsageDescription``` key和对应的授权描述。用户可以在对于设置授权弹框不弹出。这样手机中所有app的这个授权弹框都不会弹出。[Build trust through better privacy](https://developer.apple.com/videos/play/wwdc2020/10676/) 这个session讲了更多相关的细节。
+
+
+### 6.初始化UIControls可以有事件回调啦
+
+UIcontrols可以通过闭包来传递事件了，就不需要之前的selectors来绑定方法。
+如下：
+
+    let action = UIAction(title: "") { _ in print("Tapped!") }
+    let button = UIButton(frame: .zero, primaryAction: action)
+
+
+### 7. UIBarButtonItem触发菜单栏
+UIBarButtonItem点击可以触发显示菜单栏了。
+苹果的用户交互指导建议多使用这样的方式。
+使用代码如下
+
+
+    let newFolder = UIAction(title: "New Folder", image: UIImage(systemName: "folder.badge.plus")) { _ in print("NewFolder")}
+    let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil.circle")) { _ in print("Edit") }
+    let menu = UIMenu(title: "", children: [newFolder, edit])
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), menu: menu)
+
+
+![image](https://upload-images.jianshu.io/upload_images/1724449-06bccec80525e91e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 8.UIColorPickerViewController 颜色选择器
+
+类似于图片选择器，其代理方法包括```colorPickerViewControllerDidFinish(_:)```和```colorPickerViewControllerDidSelectColor(_:)```
+
+使用如下:
+
+    let colorPicker = UIColorPickerViewController()
+    colorPicker.delegate = self
+    colorPicker.selectedColor = .orange
+    present(colorPicker, animated: true, completion: nil)
+
+
+### 9.UIPageControl and UIDatePicker新api
+
+分页小点点可以设置图片来作为page indicators。日期选择器有全新的UI，有弹出式菜单显示和```.inline```样式
+
+    let pageControl = UIPageControl()
+    pageControl.preferredIndicatorImage = UIImage(systemName:"tortoise")
+    pageControl.setIndicatorImage(UIImage(systemName:"hare"), forPage:2)
+    
+    let datePicker = UIDatePicker(frame: .zero)
+    datePicker.preferredDatePickerStyle = .inline
+
+![image](https://upload-images.jianshu.io/upload_images/1724449-65e7ec3e2fc549aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 10.新增针对于Mac的userInterfaceIdiom
+
+之前在设备判断```UIDevice.current.userInterfaceIdiom```的时候只有```.iPhone```, ```.iPad```两个选项，在xcode12中新添加了```.mac``` 选项
+无疑对多端开发更加友好。
 
 
