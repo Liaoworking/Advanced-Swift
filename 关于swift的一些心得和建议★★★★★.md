@@ -329,6 +329,29 @@ navigationController?.pushViewController(vc)
 
 这样你的代码也会看起来更整洁一些，不过你如果用filter函数的话另讲。
 
+### ⭐️tip18: 
+#### 适当使用别名```typealias```让你的代码可读性更高
+
+假设我们有一个处理图书的运用，一本书包括不同的章节，不同的章节又包括不同的页面，可以像下面这样表示。
+
+    struct Page { }
+    // 章节
+    var myChapter: [Page] = []
+    // 一本书
+    var  myBook: [[Page]] = []
+
+但如果我们用别名去定义章节类型和书类型
+    
+    // 章节
+    typealias Chapter = [Page]
+    // 书
+    typealias Book = [Chapter]
+    
+    var myChapter: Chapter = []
+    var myBook: Book = []
+
+这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
+
 
 to be continued⏱.
 
