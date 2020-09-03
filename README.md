@@ -160,6 +160,9 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 添加swiftLint后时间为```4.279s```，有的时候会更长一些。
 
+##### 如果你只是对代码格式化有要求
+##### 推荐使用nicklockwood大神写的[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+以XCode插件的形式添加到XCode中，一键格式化当前Swift文件。非常方便。
 
 ---
 ## All Tips
