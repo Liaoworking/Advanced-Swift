@@ -1,9 +1,20 @@
 
-### 什么是@ViewBuilder?
+## 什么是@ViewBuilder?
 
 ##### 从字面意思去理解 ViewBuilder 就是```视图构建```，其主要使用场景就是构建视图。
-##### 可以通过ViewBuilder把许多具体相同特点的View封装起来，并且分离逻辑代码和视图，提升代码的可复用性，并增强可读性。
-##### 看了下面的例子你可能就会对@ViewBuilder的使用有一个更好的理解。
+##### 在Apple的[官方文档](https://developer.apple.com/documentation/swiftui/viewbuilder)中有这样一句话
+
+> allowing those closures to provide multiple child views
+> 允许闭包中提供多个子视图
+
+就是对@ViewBuilder的最好的解释。
+
+#### 不使用@ViewBuilder时你只能传递一个View在闭包里，使用@ViewBuilder你可以传递多个View到闭包里面
+
+## 结合ViewBuilder和便利构造函数使代码更优美。
+
+##### 可以在项目中通过ViewBuilder注解和便利构造函数把许多具体相同特点的View封装起来，并且分离逻辑代码和视图，提升代码的可复用性，并增强可读性。
+##### 看了下面的例子你可能就会对@ViewBuilder结合便利构造器的使用有一个更好的理解。
 
 如果我们想要设置一个Text的背景为红色，圆角为5。我们可能这样去写
 
@@ -105,6 +116,9 @@
 
     RedBackgroundAndCornerView {
         Text("liaoworking")
+        // 如果不使用@ViewBuilder 这里会报错
+        // @ViewBuilder使闭包拥有提供多个视图的特性。
+        Text("liaoworking")
     }
     
     RedBackgroundAndCornerView {
@@ -118,3 +132,4 @@
     
 ### 总结：
 @ViewBuilder是一个封装可复用view逻辑的利器。它最大的好处就是把你```逻辑代码和你的视图剥离开```。让代码的```可维护性和易读性有很大提升```。我在之前的项目里一开始写过很多垃圾代码，后来知道了@ViewBuilder，这的确在对相同逻辑View的封装和使用上有了很大的便捷。 
+
