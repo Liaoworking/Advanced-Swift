@@ -403,15 +403,15 @@ navigationController?.pushViewController(vc)
 
 运算符的具体定义如下
 
-    ///// 定义优先级组
-    precedencegroup GYMAsyncPrecedencegroup {
+    /// 定义优先级组
+    precedencegroup MyAsyncPrecedencegroup {
         associativity: left // 从左往右执行
         assignment: false // 不可以赋值
     }
 
-    infix operator >-->: GYMAsyncPrecedencegroup  // 继承 MyPrecedence 优先级组
+    infix operator >-->: MyAsyncPrecedencegroup  // 遵守 MyAsyncPrecedencegroup 优先级组
     
-    // 这里的逃逸闭包写的有点丑 本来想用alias来简化  发现语法不支持。
+    /// 这里的逃逸闭包写的有点丑 本来想用alias来简化  发现语法不支持。
     func >-->(lhs:@escaping ((@escaping GYMVoidClosure) -> Void),
               rhs: @escaping ((@escaping GYMVoidClosure) -> Void))
               -> (@escaping GYMVoidClosure) -> Void {
