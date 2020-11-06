@@ -357,6 +357,78 @@ navigationController?.pushViewController(vc)
 这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
 
 
+### ⭐️tip19: 
+#### 使用自定义运算符让你的连续异步顺序执行的回调更优雅
+
+现在有一个需求：
+在一个引导之后去顺序执行其他的引导，
+或者一个网络请求完去顺序执行另外的网络请求。 
+
+我们可能会写出这个样子的代码：
+
+    func asyncTask1(success: @escaping ()->Void) {
+        // After a while
+        success()
+    }
+
+    func asyncTask2(success: @escaping ()->Void) {
+        // After a while
+        success()
+    }
+
+    func asyncTask3(success: @escaping ()->Void) {
+        // After a while
+        success()
+    }
+
+    /// 方法调用 多重闭包嵌套 阅读成本太大  不建议 ❌
+    func start() {
+        asyncTask1 {
+            asyncTask2 {
+                asyncTask3 {
+                    // finish
+                }
+            }
+        }
+    }
+
+
+在Swift中我们可以自定义运算符， 可以通过自定义操作符写出下面这样的代码
+
+    // --> 为我们自定义的操作符  表示左边的方法执行完再去执行右边的方法 
+    // 所有的方法都执行完后会调用 finish   方便阅读 ✅
+    asyncTask1 >--> asyncTask2 >--> asyncTask3 {
+    // finish
+    }
+
+运算符的具体定义如下
+
+    ///// 定义优先级组
+    precedencegroup GYMAsyncPrecedencegroup {
+        associativity: left // 从左往右执行
+        assignment: false // 不可以赋值
+    }
+
+    infix operator >-->: GYMAsyncPrecedencegroup        // 继承 MyPrecedence 优先级组
+    
+    // 这里的逃逸闭包写的有点丑 本来想用alias来简化  发现语法不支持。
+    func >-->(lhs:@escaping ((@escaping GYMVoidClosure) -> Void),
+              rhs: @escaping ((@escaping GYMVoidClosure) -> Void))
+              -> (@escaping GYMVoidClosure) -> Void {
+
+      return { complete in
+        lhs {
+          rhs {
+              complete()
+          }
+        }
+      }
+      
+    }
+
+这样我们就可以通过自定义运算符来通俗易懂的表示出异步顺序执行事件了。
+具体运算符的定义和使用：[Swift文档_自定义运算符](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/27_advanced_operators#custom-operators)
+
 to be continued⏱.
 
 
