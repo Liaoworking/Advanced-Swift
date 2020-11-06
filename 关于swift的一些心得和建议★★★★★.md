@@ -381,12 +381,12 @@ navigationController?.pushViewController(vc)
         success()
     }
 
-    /// 方法调用 多重闭包嵌套 阅读成本太大  不建议 ❌
+    // 方法调用 多重闭包嵌套 阅读成本太大  不建议 ❌
     func start() {
         asyncTask1 {
             asyncTask2 {
                 asyncTask3 {
-                    // finish
+                    // finished, do something here
                 }
             }
         }
@@ -395,10 +395,10 @@ navigationController?.pushViewController(vc)
 
 在Swift中我们可以自定义运算符， 可以通过自定义操作符写出下面这样的代码
 
-    // --> 为我们自定义的操作符  表示左边的方法执行完再去执行右边的方法 
+    // >--> 为我们自定义的运算符  >-->左边的方法执行完再去执行右边的方法 
     // 所有的方法都执行完后会调用 finish   方便阅读 ✅
     asyncTask1 >--> asyncTask2 >--> asyncTask3 {
-    // finish
+    // finished,do something here
     }
 
 运算符的具体定义如下
@@ -409,7 +409,7 @@ navigationController?.pushViewController(vc)
         assignment: false // 不可以赋值
     }
 
-    infix operator >-->: GYMAsyncPrecedencegroup        // 继承 MyPrecedence 优先级组
+    infix operator >-->: GYMAsyncPrecedencegroup  // 继承 MyPrecedence 优先级组
     
     // 这里的逃逸闭包写的有点丑 本来想用alias来简化  发现语法不支持。
     func >-->(lhs:@escaping ((@escaping GYMVoidClosure) -> Void),
@@ -427,6 +427,7 @@ navigationController?.pushViewController(vc)
     }
 
 这样我们就可以通过自定义运算符来通俗易懂的表示出异步顺序执行事件了。
+
 具体运算符的定义和使用：[Swift文档_自定义运算符](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/27_advanced_operators#custom-operators)
 
 to be continued⏱.
