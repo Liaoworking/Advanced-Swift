@@ -356,6 +356,18 @@ navigationController?.pushViewController(vc)
 
 这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
 
+### ⭐️tip19: 
+#### 结合```guard``` 和 ```#available``` 来代替 ```if else``` 让代码更简洁。
+
+    guard #available(iOS 13, *) else {
+        //兼容老版本的代码 do something here
+        return
+    }
+    //兼容新的版本的代码 do something here
+    print("3")
+
+
+
 
 to be continued⏱.
 
