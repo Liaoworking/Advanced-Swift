@@ -403,6 +403,8 @@ navigationController?.pushViewController(vc)
 
 运算符的具体定义如下
 
+    typealias MyVoidClosure = ()->Void
+
     /// 定义优先级组
     precedencegroup MyAsyncPrecedencegroup {
         associativity: left // 从左往右执行
@@ -412,9 +414,9 @@ navigationController?.pushViewController(vc)
     infix operator >-->: MyAsyncPrecedencegroup  // 遵守 MyAsyncPrecedencegroup 优先级组
     
     /// 这里的逃逸闭包写的有点丑 本来想用alias来简化  发现语法不支持。
-    func >-->(lhs:@escaping ((@escaping GYMVoidClosure) -> Void),
-              rhs: @escaping ((@escaping GYMVoidClosure) -> Void))
-              -> (@escaping GYMVoidClosure) -> Void {
+    func >-->(lhs:@escaping ((@escaping MyVoidClosure) -> Void),
+              rhs: @escaping ((@escaping MyVoidClosure) -> Void))
+              -> (@escaping MyVoidClosure) -> Void {
 
       return { complete in
         lhs {
