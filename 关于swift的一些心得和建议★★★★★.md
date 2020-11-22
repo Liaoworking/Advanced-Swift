@@ -139,6 +139,9 @@
     print("had A and B")
     guard let realOptionalC = optionalC else { return }
     print("had A、B and C")
+    
+    
+#### 多用guard let 去解包可以在很多情况下```大幅度的减小一些耗时函数的编译时间```,具体可以参考[Swift编译加速Tips](https://github.com/Liaoworking/Advanced-Swift/blob/master/swift%E6%96%B0%E7%89%B9%E6%80%A7/Swift%E7%BC%96%E8%AF%91%E5%8A%A0%E9%80%9F%E7%9A%84Tips.md)这篇文章。
 ---
 ### ⭐️tip11: 
 #### 快速为Class生成带有属性的初始化方法
