@@ -432,6 +432,44 @@ navigationController?.pushViewController(vc)
 
 具体运算符的定义和使用：[Swift文档_自定义运算符](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/27_advanced_operators#custom-operators)
 
+
+### ⭐️tip20: 
+#### 关于属性包装```propertyWrapper```对UserDefaults的封装的调用时机问题。
+
+关于属性包装最有用的实际使用就是对UserDefaults的封装, 具体可以看[这篇文章的讲解](https://www.jianshu.com/p/ff4c048f0cf4)
+
+    /// 当前用户的名称为 "liaoWorking"
+    var name:String = "liaoWorking"
+    
+    /// 对UserDefaults的封装类
+    struct UserDefaultsConfig {
+      @UserDefault("had_shown_guide_view\(name)", defaultValue: false)
+      static var hadShownGuideView: Bool
+    }
+
+假设当前用户引导显示完毕，将hadShownGuideView 置为true
+    
+    UserDefaultsConfig.hadShownGuideView = true
+    
+假设用户```liaoWorking```在```没杀死app```的情况下切换到用户```zhangMing```
+
+这个时候再去读 UserDefaultsConfig.hadShownGuideView 的值 是true 还是 false ？🤔
+
+
+实际这个时候 UserDefaultsConfig.hadShownGuideView 的key 还是 "had_shown_guide_view```liaoWorking```"
+
+因为是static， UserDefaultsConfig.hadShownGuideView的key在第一次调用的时候就确定了。
+
+你可以将hadShownGuideView改为成员变量，保证每一次获取UserDefaults的时候key都为包含当前用户名的key。
+
+    struct UserDefaultsConfig {
+      /// 去掉Static 改为成员变量
+      @UserDefault("had_shown_guide_view\(name)", defaultValue: false)
+      var hadShownGuideView: Bool
+    }
+    ///  保证每次调用的时候UserDefaults的key都是当前的用户的name
+    UserDefaultsConfig().hadShownGuideView = true
+
 to be continued⏱.
 
 
