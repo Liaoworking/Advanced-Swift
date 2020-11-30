@@ -437,6 +437,27 @@ navigationController?.pushViewController(vc)
 
 
 ### ⭐️tip20: 
+#### 利用```compactMap```优雅解包。
+
+为了明确区分flatMap函数的使用场景，在Swift4.1时候推出compactMap函数来加以区分。 
+一般使用是用来过滤集合中的nil。
+
+    var array: [String?]?
+
+我们想要安全的取出array里面的第一个元素
+
+平时的使用：
+
+    // 这个时候array1元素的类型是 [String?], 如果需要安全的使用array1 需要二次对array1解包   ❌
+    guard let array1 = array, let firstObject1 = array1.first, let realFirstObject = firstObject1 else { return }
+
+使用 ```compactMap```
+
+    // 使用compactMap后 array的类型是[String]   ✅
+    guard let array2 = array?.compactMap({$0}), let firstObject2 = array2.first else { return }
+
+
+### ⭐️tip21: 
 #### 关于属性包装```propertyWrapper```对UserDefaults的封装的调用时机问题。
 
 关于属性包装最有用的实际使用就是对UserDefaults的封装, 具体可以看[这篇文章的讲解](https://www.jianshu.com/p/ff4c048f0cf4)
