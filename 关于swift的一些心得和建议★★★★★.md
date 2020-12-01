@@ -235,6 +235,7 @@
 ---
 ### ⭐️tip12: 
 #### 自定义enum中尽量不要使用 case none的枚举项。
+#### 原因Swift 自带 ```Optional``` 也有一个 case none的枚举。易混淆。
 
     enum MyEnum {
         case ok

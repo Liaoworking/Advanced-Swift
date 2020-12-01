@@ -176,8 +176,65 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 ### ⭐️tip2: 
 #### 多使用```let```
 ##### let会让我们在很多时候```放心大胆```的去使用定义好的值，而不用去考虑后面再哪里改变了这个值和安全性的问题。
+
 ---
 ### ⭐️tip3: 
+#### 通过```计算型属性```实现```模型的转换```(Objective-C 到 Swift的一个思维转换)
+##### 假设App中有一个全局播放器，我们需要把后台发给我们的```不同模块音乐模型```(```ChildrenSongModel```, ```PodcastModel```)转换成```统一的音乐模型```(```GenernalMusicModel```)。
+
+刚刚从Objective-C过渡到Swift时候的我的写法：
+
+    /// 统一音乐模型转换类
+    class MusicConvertManager {
+        
+        /// 将儿歌的音乐模型转换成统一音乐模型
+        /// - Parameter childernSongModel: 儿歌模型
+        /// - Returns: 统一的音乐模型
+        static func convertChildrenSong(of childernSongModel: ChildernSongModel) -> GenernalMusicModel {
+            let genernalMusic  = GenernalMusicModel()
+            genernalMusic.id   = childernSongModel._id
+            genernalMusic.url  = childernSongModel.musicURL
+            genernalMusic.name = childernSongModel.title
+            return genernalMusic
+        }
+        
+        /// 将播客的音乐模型转换成统一音乐模型
+        /// - Parameter childernSongModel: 播客音乐模型
+        /// - Returns: 统一的音乐模型
+        static func convertChildrenSong(of podcastModel: PodcastModel) -> GenernalMusicModel {
+            let genernalMusic  = GenernalMusicModel()
+            genernalMusic.id   = PodcastModel.pid
+            genernalMusic.url  = childernSongModel.url
+            genernalMusic.name = childernSongModel.name
+            return genernalMusic
+        }
+
+    }
+
+    /// 具体使用   不建议这样，每次写到这里都需要先想到MusicConvertManager类，再思考用哪个具体的方法。❎
+    MusicManager.shared.currentModel = MusicConvertManager.convertChildrenSong(of: jsonModel.childrenModel)
+
+
+建议写法： 通过给具体的模型创建```extension```， 在extension中创建generalMusicModel的```计算型属性```方便阅读和使用。
+
+    /// 通过genernalMusicModel计算型属性转换统一的音乐模型。   PodcastModel转换同理。
+    extension ChildernSongModel {
+        /// 统一的音乐模型  (如果是耗时操作建议缓存转换后的结果)
+        var genernalMusicModel: GenernalMusicModel {
+            let genernalMusic  = GenernalMusicModel()
+            genernalMusic.id   = _id
+            genernalMusic.url  = musicURL
+            genernalMusic.name = title
+            return genernalMusic
+        }
+    }
+
+    /// 具体使用 这样写便于阅读及使用方便。 ✅
+    MusicManager.shared.currentModel = jsonModel.childrenModel.genernalMusicModel
+
+
+---
+### ⭐️tip4: 
 #### array.isEmpty 效率比 arrya.count 更高
 ##### 当我们去判断一个```数组是否为空```的时候 大多都会写if array.count > 0 {} 
 ##### isEmpty 方法只有检查array```startIndex == endIndex``就可以。而count的底层是```遍历整个array```求集合长度。当数组长度过大时```性能低```一些。
@@ -195,7 +252,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 ##### 其实当array为```nil```时 也会走doSomething() 的逻辑   这个时候可能就会出现逻辑上的bug.
 ##### 用 isEmpty 就不会忽略这样的问题。
 ---
-### ⭐️tip4: 
+### ⭐️tip5: 
 #### 将你```时常需要的常量```封装成你需要的属性
 ##### OC中的宏是我们在之前开发中经常用到的一些常用属性的封装。
 ##### 在swift中我们可以通过在```extension```中创建一些类属性，让你的常量更优雅
@@ -216,24 +273,24 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     titleLabel.backgroundColor = .appMain
 
 ---
-### ⭐️tip5: 
+### ⭐️tip6: 
 #### 当你需要的返回值有```成功```或者```失败```两种情况，而且```成功或者失败的情况有很多种```的话。推荐你使用Swift5以后推出的```Result```类型。
 ##### 具体用法可看[之前写过的一篇文章](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.1%20result%E7%B1%BB%E5%9E%8B.md)
 ##### 它会让你的代码变的更简洁清晰。
 ---
-### ⭐️tip6: 
+### ⭐️tip7: 
 #### 同样在Swift5.0中添加了bool值的新方法```toggle()```， 它的主要作用是让Bool值取反。 
 ##### 像我们在btn的按钮的状态改变的时候之前一般都会用 ```btn.isSelected = !btn.isSelected``` 有了toggle方法后 直接可以 ```btn.toggle()``` 达到同样的效果。 
 ---
-### ⭐️tip7: 
+### ⭐️tip8: 
 #### TODO-~~用通俗的语言和使用场景向大家介绍@autoclosure 注解的使用~~  不了解的同学可以先google一下相关用法。
 ---
-### ⭐️tip8: 
+### ⭐️tip9: 
 #### switch 语句中尽量少的使用```default``` 分支
 ##### 当我们添加新的case时候 有些没有cover到的地方没有编译报错就会产生一些逻辑错误。
 ##### 如果觉得编译报错太烦可以使用swift 5 出来的[@unknown](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%99%95%E7%90%86%E6%9C%AA%E4%BE%86-case-%E7%9A%84-unknown-default-swift-5-c064365d6c3) 关键字修饰default 分支  让新添加的case以编译警告的形式出现。
 ---
-### ⭐️tip9: 
+### ⭐️tip10: 
 #### 打印 枚举的case名，输出并不是枚举的value值而是case的字面名字。
     
     enum Animal: String {
@@ -254,7 +311,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     print(time) // second
     print(time.rawValue) // 1
 ---
-### ⭐️tip10: 
+### ⭐️tip11: 
 #### 多用 ```guard let```   少用 ```if let``` 
     
     // 使用 if let 嵌套太多 不利于维护 ❌
@@ -275,8 +332,11 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     print("had A and B")
     guard let realOptionalC = optionalC else { return }
     print("had A、B and C")
+    
+#### 多用guard let 去解包可以在很多情况下```大幅度的减小一些耗时函数的编译时间```,具体可以参考[Swift编译加速Tips](https://github.com/Liaoworking/Advanced-Swift/blob/master/swift%E6%96%B0%E7%89%B9%E6%80%A7/Swift%E7%BC%96%E8%AF%91%E5%8A%A0%E9%80%9F%E7%9A%84Tips.md)这篇文章。
+    
 ---
-### ⭐️tip11: 
+### ⭐️tip12: 
 #### 快速为Class生成带有属性的初始化方法
 
 在struct中， 编译器会自动生成带有属性的初始化方法。
@@ -310,8 +370,9 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
     }
 
 ---
-### ⭐️tip12: 
+### ⭐️tip13: 
 #### 自定义enum中尽量不要使用 case none的枚举项。
+#### 原因Swift 自带 ```Optional``` 也有一个 case none的枚举。易混淆。
 
     enum MyEnum {
         case ok
@@ -329,7 +390,7 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
 
-### ⭐️tip13: 
+### ⭐️tip14: 
 #### 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
 假设某电商app首页的tableView有4个section
    
