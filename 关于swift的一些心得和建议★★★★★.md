@@ -44,7 +44,7 @@
 ---
 ### ⭐️tip3: 
 #### 通过```计算型属性```实现```模型的转换```(Objective-C 到 Swift的一个思维转换)
-##### 假设App中有一个全局播放器，我们需要把后台发给我们的不同模块音乐模型(ChildrenSongModel, PodcastModel)转换成统一的音乐模型(GenernalMusicModel)。
+##### 假设App中有一个全局播放器，我们需要把后台发给我们的```不同模块音乐模型```(```ChildrenSongModel```, ```PodcastModel```)转换成```统一的音乐模型```(```GenernalMusicModel```)。
 
 刚刚从Objective-C过渡到Swift时候的我的写法：
 
@@ -79,7 +79,7 @@
     MusicManager.shared.currentModel = MusicConvertManager.convertChildrenSong(of: jsonModel.childrenModel)
 
 
-建议写法： 通过给具体的模型创建extension， 在extension中创建generalMusicModel的计算型属性方便易写。
+建议写法： 通过给具体的模型创建```extension```， 在extension中创建generalMusicModel的```计算型属性```方便阅读和使用。
 
     /// 通过genernalMusicModel计算型属性转换统一的音乐模型。   PodcastModel转换同理。
     extension ChildernSongModel {
