@@ -28,6 +28,20 @@
 ##### 推荐使用nicklockwood大神写的[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
 以XCode插件的形式添加到XCode中，一键格式化当前Swift文件。非常方便。
 
+### Swift API 设计命名规范：
+
+得益于Swift中 ```外部参数命名```和```_ 代表的忽略外部参数命名 ```
+
+Swift中的API命名会更强于Objective-C
+
+Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/documentation/api-design-guidelines/)
+
+这里是[中文翻译](https://www.yuque.com/kiwi/ios/swift-api-design)
+
+最好的学习方式是模仿Swift标准库的API设计的感觉去写自己项目的方法名。
+
+个人感悟： 好的方法名读起来应该是一句```精炼流畅的英文句子```
+
 ---
 ## All Tips
 ### ⭐️tip1: 
@@ -560,6 +574,7 @@ navigationController?.pushViewController(vc)
     }
     ///  保证每次调用的时候UserDefaults的key都是当前的用户的name
     UserDefaultsConfig().hadShownGuideView = true
+
 
 to be continued⏱.
 
