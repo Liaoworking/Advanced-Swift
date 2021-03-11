@@ -138,8 +138,52 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
     
 ##### 其实当array为```nil```时 也会走doSomething() 的逻辑   这个时候可能就会出现逻辑上的bug.
 ##### 用 isEmpty 就不会忽略这样的问题。
+
 ---
 ### ⭐️tip6: 
+#### 集合上使用的一些函数式编程的性能提升建议。
+##### 上面提到了isEmpty的性能会好于count， 下面会引申一些类似的提升性能的用法。
+##### 操作集合我们经常会用到```map```、```filter```、```reduce```等函数，有时候可以使用标准库的其他API使性能提升。
+
+
+    // 取一个集合中第一个大于0的数
+    let numberArray = [-4,1,-1,2,3,9]
+    let firstPositiveNumber = numberArray.first(where: { $0 > 0 })    ✅
+    
+    let firstPositiveNumber = numberArray.filter { $0 > 0 }.first    ❌
+    // 第一个方法遍历到符合条件的元素后即停止，  第二个方法在所有元素都遍历完一遍后再去找第一个。
+    
+    // 同上面还有 取出集合中的最大最小元素
+    let minNumber = numberArray.min()    ✅
+    let maxNumber = numberArray.max()    ✅
+
+    let minNumber = numberArray.sorted().first    ❌
+    let maxNumber = numberArray.sorted().last     ❌
+
+#####  在Swift4.2的时候推出了```allSatisfy(_:)``` 的用法，用于判断是否所有元素满足某一条件。
+##### 某些时候可以替换filter。且对于长集合性能提升很大  具体使用场景如下：
+
+    // 判断是不是所有的元素都是大于0   isAllPositive为Bool
+    let isAllPositive = numberArray.allSatisfy { $0 > 0 }    ✅✅✅
+    
+    let isAllPositive = numberArray { $0 > 0 }.isEmpty   ❌❌❌
+    // 第一个方法在遇到第一个元素不不符合条件就遍历结束 直接返回false
+    // 第二个方法需要把所有的元素都遍历一遍后再去看是否是isEmpty  长集合会性能低下。
+
+
+#####  判断是否包含一个元素： ```contains```的性能要优于使用```filter(_:)``` 和 ```first(where:)```的用法
+
+    // 判断是否包含 -1 这个元素
+    
+    let isContiansNagtiveOne = numberArray.contains(-1) ✅
+    
+    let isContiansNagtiveOne = numberArray.filter { $0 == -1 }.isEmpty == false  ❌
+    let isContiansNagtiveOne = numberArray.first(where: { $0 == -1 }) != nil  ❌
+    // 其原因同上。
+
+
+---
+### ⭐️tip7: 
 #### 将你```时常需要的常量```封装成你需要的属性
 ##### OC中的宏是我们在之前开发中经常用到的一些常用属性的封装。
 ##### 在swift中我们可以通过在```extension```中创建一些类属性，让你的常量更优雅
@@ -160,26 +204,26 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
     titleLabel.backgroundColor = .appMain
 
 ---
-### ⭐️tip7: 
+### ⭐️tip8: 
 #### 当你需要的返回值有```成功```或者```失败```两种情况，而且```成功或者失败的情况有很多种```的话。推荐你使用Swift5以后推出的```Result```类型。
 ##### 具体用法可看[之前写过的一篇文章](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/8.1%20result%E7%B1%BB%E5%9E%8B.md)
 ##### 它会让你的代码变的更简洁清晰。
 ---
-### ⭐️tip8: 
+### ⭐️tip9: 
 #### 同样在Swift5.0中添加了bool值的新方法```toggle()```， 它的主要作用是让Bool值取反。 
 ##### 像我们在btn的按钮的状态改变的时候之前一般都会用 ```btn.isSelected = !btn.isSelected``` 有了toggle方法后 直接可以 ```btn.toggle()``` 达到同样的效果。 
 ---
-### ⭐️tip9: 
+### ⭐️tip10: 
 ### 使用```@autoclosure``` 关键字，让你的没有参数的闭包做函数的参数时，代码阅读性更强(只做了解，个人感觉在项目中使用的场景不多，使用的意义不大)。
   
   #### ```@autoclosure```算是使用机会比较少的一个关键字了，唯一的作用是使代码变的美观一些。使闭包的描述不再使用```{}```, 而是更参数化用```()```。 不太能理解```@autoclosure```的同学可以看一下[Swift中文文档闭包章节的最后一个知识点](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/07_closures)。 这个tip只做了解就好。
 ---
-### ⭐️tip10: 
+### ⭐️tip11: 
 #### switch 语句中尽量少的使用```default``` 分支
 ##### 当我们添加新的case时候 有些没有cover到的地方没有编译报错就会产生一些逻辑错误。
 ##### 如果觉得编译报错太烦可以使用swift 5 出来的[@unknown](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%99%95%E7%90%86%E6%9C%AA%E4%BE%86-case-%E7%9A%84-unknown-default-swift-5-c064365d6c3) 关键字修饰default 分支  让新添加的case以编译警告的形式出现。
 ---
-### ⭐️tip9: 
+### ⭐️tip12: 
 #### 打印 枚举的case名，输出并不是枚举的value值而是case的字面名字。
     
     enum Animal: String {
@@ -200,7 +244,7 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
     print(time) // second
     print(time.rawValue) // 1
 ---
-### ⭐️tip10: 
+### ⭐️tip13: 
 #### 多用 ```guard let```   少用 ```if let``` 
     
     // 使用 if let 嵌套太多 不利于维护 ❌
@@ -225,7 +269,7 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
     
 #### 多用guard let 去解包可以在很多情况下```大幅度的减小一些耗时函数的编译时间```,具体可以参考[Swift编译加速Tips](https://github.com/Liaoworking/Advanced-Swift/blob/master/swift%E6%96%B0%E7%89%B9%E6%80%A7/Swift%E7%BC%96%E8%AF%91%E5%8A%A0%E9%80%9F%E7%9A%84Tips.md)这篇文章。
 ---
-### ⭐️tip11: 
+### ⭐️tip14: 
 #### 快速为Class生成带有属性的初始化方法
 
 在struct中， 编译器会自动生成带有属性的初始化方法。
@@ -259,7 +303,7 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
     }
 
 ---
-### ⭐️tip12: 
+### ⭐️tip15: 
 #### 自定义enum中尽量不要使用 case none的枚举项。
 #### 原因Swift 自带 ```Optional``` 也有一个 case none的枚举。易混淆。
 
@@ -279,7 +323,7 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
 
 这个时候编译器会报警告 而且你的switch中会多一个case .some(.none):的选项。
 
-### ⭐️tip13: 
+### ⭐️tip16: 
 #### 用枚举去定义一些静态的tableView数据源会让代码变的更简洁。
 假设某电商app首页的tableView有4个section
    
@@ -324,13 +368,13 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
 
 Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过程中自己多尝试一下下~
 ---
-### ⭐️tip14: 
+### ⭐️tip17: 
 #### 不要为所欲为的使用计算型属性。
 有时候为了图方便就会使用计算型属性，保证每次都会拿到最新的数据。但如果是一些```耗时操作```建议添加缓存，或者使用普通的存储型属性。 缓存存在就直接返回缓存值，不存在的时候再去调用计算方法。 
 我在SwiftUI中没有过多考虑性能问题，大部分使用的计算型属性，导致有些地方性能消耗过多。。。 分享出来以示警醒。。
 
 ---
-### ⭐️tip15: 
+### ⭐️tip18: 
 #### 方便的push或者present控制器(本来打算写优雅的push或者present，感觉优雅这个词已经被玩烂了，就换成了方便的。。🐶)。
 日常写法是let vc = UIViewController()
 
@@ -354,7 +398,7 @@ navigationController?.pushViewController(vc)
     UIViewController().bePushed(by: self)
     UIViewController().bePresented(by: self)
 
-### ⭐️tip16: 
+### ⭐️tip19: 
 #### 对通知名的封装。
 个人一开始在OC转Swift的时候会对如何更好的在Swift中写通知名感到有些疑惑。
 苹果在```Swift4.0```中```Swift官方库```对通知名的使用做过一次修改。 改成了类的静态属性的形式，如下：
@@ -398,7 +442,7 @@ navigationController?.pushViewController(vc)
      2.书写起来更方便。
      3.方便查找管理。
 
-### ⭐️tip17: 
+### ⭐️tip20: 
 #### 使用where关键字让你的for循环变的更简洁
 
 假设你需要对一个字符串数组strArray进行一些处理，但是当元素为a的时候直接忽略。
@@ -419,7 +463,7 @@ navigationController?.pushViewController(vc)
 
 这样你的代码也会看起来更整洁一些，不过你如果用filter函数的话另讲。
 
-### ⭐️tip18: 
+### ⭐️tip21: 
 #### 适当使用别名```typealias```让你的代码可读性更高
 
 假设我们有一个处理图书的运用，一本书包括不同的章节，不同的章节又包括不同的页面，可以像下面这样表示。
@@ -443,7 +487,7 @@ navigationController?.pushViewController(vc)
 这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
 
 
-### ⭐️tip19: 
+### ⭐️tip22: 
 #### 使用自定义运算符让你的连续异步顺序执行的回调更优雅
 
 现在有一个需求：
@@ -519,7 +563,7 @@ navigationController?.pushViewController(vc)
 具体运算符的定义和使用：[Swift文档_自定义运算符](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/27_advanced_operators#custom-operators)
 
 
-### ⭐️tip20: 
+### ⭐️tip23: 
 #### 利用```compactMap```优雅解包。
 
 为了明确区分flatMap函数的使用场景，在Swift4.1时候推出compactMap函数来加以区分。 
@@ -540,7 +584,7 @@ navigationController?.pushViewController(vc)
     guard let array2 = array?.compactMap({$0}), let firstObject2 = array2.first else { return }
 
 
-### ⭐️tip21: 
+### ⭐️tip24: 
 #### 关于属性包装```propertyWrapper```对UserDefaults的封装的调用时机问题。
 
 关于属性包装最有用的实际使用就是对UserDefaults的封装, 具体可以看[这篇文章的讲解](https://www.jianshu.com/p/ff4c048f0cf4)
@@ -577,6 +621,28 @@ navigationController?.pushViewController(vc)
     ///  保证每次调用的时候UserDefaults的key都是当前的用户的name
     UserDefaultsConfig().hadShownGuideView = true
 
+### ⭐️tip25: 
+#### Swift api 命名
+
+假设我们有一个处理图书的运用，一本书包括不同的章节，不同的章节又包括不同的页面，可以像下面这样表示。
+
+    struct Page { }
+    // 章节
+    var myChapter: [Page] = []
+    // 一本书
+    var  myBook: [[Page]] = []
+
+但如果我们用别名去定义章节类型和书类型
+    
+    // 章节
+    typealias Chapter = [Page]
+    // 书
+    typealias Book = [Chapter]
+    
+    var myChapter: Chapter = []
+    var myBook: Book = []
+
+这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
 
 to be continued⏱.
 
