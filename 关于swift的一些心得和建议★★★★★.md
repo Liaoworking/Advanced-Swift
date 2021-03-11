@@ -214,9 +214,9 @@ Swift 官方对Swift API 设计命名有一套[规范文档](https://swift.org/d
 ##### 像我们在btn的按钮的状态改变的时候之前一般都会用 ```btn.isSelected = !btn.isSelected``` 有了toggle方法后 直接可以 ```btn.toggle()``` 达到同样的效果。 
 ---
 ### ⭐️tip10: 
-### 使用```@autoclosure``` 关键字，让你的没有参数的闭包做函数的参数时，代码阅读性更强(只做了解，个人感觉在项目中使用的场景不多，使用的意义不大)。
+#### 使用```@autoclosure``` 关键字，让你的没有参数的闭包做函数的参数时，代码阅读性更强(只做了解，个人感觉在项目中使用的场景不多，使用的意义不大)。
   
-  #### ```@autoclosure```算是使用机会比较少的一个关键字了，唯一的作用是使代码变的美观一些。使闭包的描述不再使用```{}```, 而是更参数化用```()```。 不太能理解```@autoclosure```的同学可以看一下[Swift中文文档闭包章节的最后一个知识点](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/07_closures)。 这个tip只做了解就好。
+##### ```@autoclosure```算是使用机会比较少的一个关键字了，唯一的作用是使代码变的美观一些。使闭包的描述不再使用```{}```, 而是更参数化用```()```。 不太能理解```@autoclosure```的同学可以看一下[Swift中文文档闭包章节的最后一个知识点](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/07_closures)。 这个tip只做了解就好。
 ---
 ### ⭐️tip11: 
 #### switch 语句中尽量少的使用```default``` 分支
