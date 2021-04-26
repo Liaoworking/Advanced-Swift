@@ -489,6 +489,57 @@ Notes of Advanced Swift. 《swift进阶》学习笔记, 持续更新中。。。
 
 Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过程中自己多尝试一下下~
 
+
+### ⭐️tip17: 
+#### 利用```Swift的泛型```优雅封装圆角带阴影的视图
+
+在iOS的开发中，圆角带阴影都是一件比较```头疼```的事情。
+
+但是利用```Swift泛型```和```Core Animation```的一些知识，可以写出很优雅简洁的圆角阴影代码。
+
+具体如下
+
+    /// 阴影圆角的视图
+    class CornerShadowView<T: UIView>: UIView {
+        
+        var childView: T = T()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            configBaseUI()
+        }
+        
+        private func configBaseUI() {
+            childView = T()
+            addSubview(childView)
+            childView.frame = bounds
+        }
+      
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+
+
+使用：
+
+    // 设置泛型的具体类为 UIButton
+    let cornerShadowView = CornerShadowView<UIButton>(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    // UIButton的基本属性设置
+    cornerShadowView.childView.setTitle("Hi", for: .normal)
+
+    // UIButton的圆角属性设置 可以进行二次封装，略。
+    cornerShadowView.childView.backgroundColor = .red
+    cornerShadowView.childView.layer.cornerRadius = 50
+    cornerShadowView.childView.layer.masksToBounds = true
+
+    // 阴影设置 可以进行二次封装，略。
+    cornerShadowView.layer.shadowColor = UIColor.black.cgColor
+    cornerShadowView.layer.shadowOffset = .zero
+    cornerShadowView.layer.shadowRadius = 20
+    cornerShadowView.layer.shadowOpacity = 0.8
+
+
 [更多Tips...](https://github.com/Liaoworking/Advanced-Swift/blob/master/%E5%85%B3%E4%BA%8Eswift%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97%E5%92%8C%E5%BB%BA%E8%AE%AE%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85.md)
 
 ## Contributors List:

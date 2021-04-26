@@ -585,6 +585,55 @@ navigationController?.pushViewController(vc)
 
 
 ### ⭐️tip24: 
+#### 利用Swift的泛型优雅封装圆角带阴影的视图
+
+在iOS的开发中，圆角带阴影都是一件比较头疼的事情。
+但是利用```Swift泛型```和```Core Animation```的一些知识，可以写出很优雅简洁的圆角阴影代码。
+如下
+
+    /// 阴影圆角的视图
+    class CornerShadowView<T: UIView>: UIView {
+        
+        var childView: T = T()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            configBaseUI()
+        }
+        
+        private func configBaseUI() {
+            childView = T()
+            addSubview(childView)
+            childView.frame = bounds
+        }
+      
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+
+
+使用：
+
+    // 设置泛型的具体类为 UIButton
+    let cornerShadowView = CornerShadowView<UIButton>(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    // UIButton的基本属性设置
+    cornerShadowView.childView.setTitle("Hi", for: .normal)
+
+    // UIButton的圆角属性设置 可以进行二次封装，略。
+    cornerShadowView.childView.backgroundColor = .red
+    cornerShadowView.childView.layer.cornerRadius = 50
+    cornerShadowView.childView.layer.masksToBounds = true
+
+    // 阴影设置 可以进行二次封装，略。
+    cornerShadowView.layer.shadowColor = UIColor.black.cgColor
+    cornerShadowView.layer.shadowOffset = .zero
+    cornerShadowView.layer.shadowRadius = 20
+    cornerShadowView.layer.shadowOpacity = 0.8
+
+具体可以看[iOS中圆角视图加阴影的方案对比及封装](https://juejin.cn/post/6955291608027758628)一文的讲解。
+
+### ⭐️tip25: 
 #### 关于属性包装```propertyWrapper```对UserDefaults的封装的调用时机问题。
 
 关于属性包装最有用的实际使用就是对UserDefaults的封装, 具体可以看[这篇文章的讲解](https://www.jianshu.com/p/ff4c048f0cf4)
@@ -621,7 +670,7 @@ navigationController?.pushViewController(vc)
     ///  保证每次调用的时候UserDefaults的key都是当前的用户的name
     UserDefaultsConfig().hadShownGuideView = true
 
-### ⭐️tip25: 
+### ⭐️tip26: 
 #### Swift api 命名
 
 假设我们有一个处理图书的运用，一本书包括不同的章节，不同的章节又包括不同的页面，可以像下面这样表示。
