@@ -497,7 +497,7 @@ Swift中的枚举还有很多很强大的用法，小伙伴们可以在开发过
 
 但是利用```Swift泛型```和```Core Animation```的一些知识，可以写出很优雅简洁的圆角阴影代码。
 
-具体如下
+具体如下:
 
     /// 阴影圆角的视图
     class CornerShadowView<T: UIView>: UIView {
