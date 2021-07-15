@@ -671,7 +671,7 @@ navigationController?.pushViewController(vc)
     UserDefaultsConfig().hadShownGuideView = true
 
 ### ⭐️tip26: 
-#### Swift api 命名
+#### 运用别名使代码可读性更高
 
 假设我们有一个处理图书的运用，一本书包括不同的章节，不同的章节又包括不同的页面，可以像下面这样表示。
 
@@ -692,6 +692,46 @@ navigationController?.pushViewController(vc)
     var myBook: Book = []
 
 这样的好处可以让代码可读性更强,以后在项目中看到Chapter 和 Book 就知道表示的是章节和书了。
+
+### ⭐️tip27: 
+#### 把常用的DateFormatter封装到枚举体中使用。
+
+在项目中经常会用到时间戳格式转换成字符串，
+每次用的时候都是找之前的代码复制粘贴。
+再去修改成对应的时间格式。
+这里容易出现类似于把yyyy写成YYYY之类的错误。
+
+为了避免写重复代码及错误的发生，
+可以将所有的DateFormatter类型封装在枚举中使用。
+
+如下：
+
+
+    /// 项目中常用的时间格式枚举
+    enum DateFormatterType: String {
+      /// yyyy-MM-dd
+      case yyyy_MM_dd = "yyyy-MM-dd"
+      /// yyyy.MM.dd
+      case yyyy_MM_dd_dot = "yyyy.MM.dd"
+      /// yyyy 年 MM 月
+      case yyyy_MM_chinese = "yyyy 年 MM 月"
+      /// yyyy年MM月
+      case yyyyMM_chinese = "yyyy年MM月"
+      /// yyyy/MM/dd
+      case yyyyMMdd_slash = "yyyy/MM/dd"
+      /// yy 年 M 月 d 日 HH:mm
+      case yy_M_d_HH_mm_chinese = "yy 年 M 月 d 日 HH:mm"
+      
+      func makeDateString(of timeStamp: Double, isMileSecond: Bool = true) -> String {
+        //把时间戳转换成指定的格式
+      }
+    }
+
+    // 具体的调用
+    DateFormatterType.yyyy_MM_dd.makeDateString(of: 1626318786)
+    
+
+这样使用起来时间戳转具体的时间格式就更简洁和安全一些。(关于系统库的NSDateFormatter的性能问题这里就不做讨论了。可依据具体项目进行优化。)
 
 to be continued⏱.
 
