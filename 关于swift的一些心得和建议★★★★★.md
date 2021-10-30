@@ -733,6 +733,21 @@ navigationController?.pushViewController(vc)
 
 这样使用起来时间戳转具体的时间格式就更简洁和安全一些。(关于系统库的NSDateFormatter的性能问题这里就不做讨论了。可依据具体项目进行优化。)
 
+### ⭐️tip28: 
+#### 关于什么时候使用self的疑问?
+很多同学在OC转到Swift的时候,在使用VC或者View的属性时都喜欢在前面加一个self。
+
+
+    /// 例如在VC中，设置view的背景色
+    self.view.backgroundColor = .red
+
+在闭包的使用中因为语法的原因又不得不使用self.xxx
+有的同学就会有疑问，到底什么时候需要使用self 什么时候不需要使用self
+
+这里的回答是能不使用self,就不要使用self。能省就省。
+不过像在闭包或者init方法中需要使用self是语法原因，这里得加上self。
+
+
 to be continued⏱.
 
 
