@@ -734,9 +734,25 @@ navigationController?.pushViewController(vc)
 这样使用起来时间戳转具体的时间格式就更简洁和安全一些。(关于系统库的NSDateFormatter的性能问题这里就不做讨论了。可依据具体项目进行优化。)
 
 ### ⭐️tip28: 
+#### 在```数组中添加方法```并执行数组中的所有方法
+前几天遇到一个需求: 
+有一个多选框，用户选择不同的选项并执行对应的方法。
+
+在Swift中```函数是一等公民(first-class type)``` 可以作为参数或者返回值去使用。 利用这个特性，我们就可以很好的解决这个需求。
+
+    func funcA() { print("A") }
+    func funcB() { print("B") }
+    // 使用数组来存储函数
+    var funcArray:[()->()] = [funcA, funcB]
+   
+    // 遍历函数数组中的元素，并依次执行。
+    funcArray.forEach({$0()})
+    
+这样下来整个需求的代码逻辑就清晰可见。也更方便维护。
+
+### ⭐️tip29: 
 #### 关于什么时候使用self的疑问?
 很多同学在OC转到Swift的时候,在使用VC或者View的属性时都喜欢在前面加一个self。
-
 
     /// 例如在VC中，设置view的背景色
     self.view.backgroundColor = .red
