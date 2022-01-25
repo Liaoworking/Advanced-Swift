@@ -763,6 +763,23 @@ navigationController?.pushViewController(vc)
 这里的回答是能不使用self,就不要使用self。能省就省。
 不过像在闭包或者init方法中需要使用self是语法原因，这里得加上self。
 
+### ⭐️tip30: 
+#### 为Array添加empty的Extension让代码更具有语义化
+一般我们在创建一个空数组的时候，都喜欢像下面这样写
+    
+    //Person为自定义类
+    var persons:[Person] = []
+
+我们可以添加Array的一个分类  让创建空数组变的更具有语义化：
+
+    extension Array {
+        static var empty: Self { [] }
+    }
+
+    /// 在使用的时候 我们就可以像下面这样去创建空数组:
+    var persons:[Person] = .empty
+
+使我们的代码更具有可读性。
 
 to be continued⏱.
 
