@@ -769,6 +769,8 @@ navigationController?.pushViewController(vc)
     
     //Person为自定义类
     var persons:[Person] = []
+借鉴标准库中的一些写法 例如：
+    var size: CGSize = .zero
 
 我们可以添加Array的一个分类  让创建空数组变的更具有语义化：
 
@@ -779,7 +781,29 @@ navigationController?.pushViewController(vc)
     /// 在使用的时候 我们就可以像下面这样去创建空数组:
     var persons:[Person] = .empty
 
-使我们的代码更具有可读性。
+使代码更具有可读性。
+
+### ⭐️tip31: 
+#### 创建模型时尽可能少的使用可选型属性
+我在一开始的Swift项目开发中 总喜欢把模型属性设置成可选型，包括用一些模型生成工具生成的属性也都默认是可选。
+
+这里以User模型为例。
+
+    class User {
+        var name: String?
+    }
+
+这样会使你在项目中```大部分使用name的地方。 都会使用 ?? 来赋默认值. ```
+使代码变得不雅观, 并且考虑默认值是什么。
+
+于是在后面的开发中，像name属性 都统一```改成了有默认值```
+
+    class User {
+        var name: String = ""
+    }
+
+```省去了很多无用的赋默认值的操作。也不用在使用时考虑默认值是多少。```
+但如果某个属性的确存在为nil的情况需要考虑。还是老老实实写成可选型。
 
 to be continued⏱.
 
