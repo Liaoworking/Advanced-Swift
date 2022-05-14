@@ -805,6 +805,22 @@ navigationController?.pushViewController(vc)
 ```省去了很多无用的赋默认值的操作。也不用在使用时考虑默认值是多少。```
 但如果某个属性的确存在为nil的情况需要考虑。还是老老实实写成可选型。
 
+### ⭐️tip32: 
+#### Print打印多个参数的信息。
+在平时开发中，print打印多个参数我们会写成下面的样子:
+
+    let paraA = "A"
+    let paraB = "B"
+    let paraC = "C"
+
+    // 打印结果为 "A____B____C"
+    print("\(paraA)____\(paraB)____\(paraC)")
+
+其实在这里直接使用print的多参数打印,写法上会更简单:
+
+    // 打印结果为 "A B C"
+    print(paraA,paraB,paraC)
+
 to be continued⏱.
 
 
