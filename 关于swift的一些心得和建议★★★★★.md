@@ -821,6 +821,24 @@ navigationController?.pushViewController(vc)
     // 打印结果为 "A B C"
     print(paraA,paraB,paraC)
 
+### ⭐️tip33: 
+#### 减少编译耗时的建议。
+在前面tip13 已经提到了关于优化编译时长的一些建议
+下面重点讲讲最近在适配Xcode14时遇到的一个编译问题。
+
+    let vedioCount = 4
+    let musicCount = 3
+    let sectionCount = 4
+    // 不要写像成下面这种 很长的一段计算表达式的形式
+    // 下面这一行代码在2019款16寸顶配mbp上编译耗时也需要110多秒  这里不是毫秒 是秒
+    let cellWidth = CGFloat(224 * vedioCount + musicCount * 150 + 233 + (sectionCount - 1) * 30 + sectionCount) ❌
+
+需要将上面的一行长代码拆分成多个短的代码。
+并且在声明变量的时候主动指定类型，别让XCode自己去推断。
+如：
+    
+    let videoCount: Int = 4
+
 to be continued⏱.
 
 
