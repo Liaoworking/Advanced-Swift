@@ -839,6 +839,25 @@ navigationController?.pushViewController(vc)
     
     let videoCount: Int = 4
 
+
+### ⭐️tip34: 
+#### UIView中局部变量的命名的建议。
+这条不算是Swift的建议，而是iOS开发过程中的一个建议：
+在UIView中创建局部变量表示图的宽高时不建议使用 height, width 种命名方式
+    
+    let width: CGFloat = 30.0
+    let height: CGFloat = 40.0
+    
+因为在Swift中view中已经存在叫width和height的属性，虽然这样可以使用。
+但在日后如果想修改局部变量的名称width 或者 height 为其他名称时。
+就会产生查找修改的麻烦。（帮别人改代码有感)
+
+建议命名为 itemWidth, viewHeight 之类的名称作以区分：
+
+    let itemWidth: CGFloat = 30.0
+    let itemHeight: CGFloat = 40.0
+
+
 to be continued⏱.
 
 
