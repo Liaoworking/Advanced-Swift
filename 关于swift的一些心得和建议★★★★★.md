@@ -858,6 +858,14 @@ navigationController?.pushViewController(vc)
     let itemHeight: CGFloat = 40.0
 
 
+### ⭐️tip35: 
+#### 关于模型用class 还是 struct的 建议。
+如果对项目的内存管理有严格要求的话推荐使用struct.
+不严格测试 在遍历创建一百万次拥有两个属性的Person对象时。
+struct的内存占用是class的0.6倍。
+其他方面性能差异不大。
+
+
 to be continued⏱.
 
 
